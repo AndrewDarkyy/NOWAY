@@ -1,9 +1,6 @@
 local Library = {}
 function Library:Window(a,b)
-    -- sufi is dum shit ~ edited by AndrewDarkyy#7782
-    -- yo sufi emo girl u can sack my balls
-    -- and this ui lib is ur daddy, sufi dum shit stupid jerk
-    -- and ur so dum 😘 (ligma balls)
+    -- sufi is dum shit
     local f = game:GetService("CoreGui")
     local g = game:GetService("UserInputService")
     local h = game:GetService("RunService")
@@ -32,7 +29,6 @@ function Library:Window(a,b)
     local s
     local RainbowCum = Color3.new()
     getgenv().ArsoniaSettings = {}
-    getgenv().ArsoniaNum = 1
     getgenv().WindowThemeColor = b
     getgenv().GuiToggle = Enum.KeyCode.RightShift
     for _, u in next, f:GetChildren() do
@@ -359,8 +355,6 @@ function Library:Window(a,b)
                 U.MouseButton1Click:Connect(T)
             end
             function S:Toggle(a, T)
-                local V = getgenv().ArsoniaNum
-                getgenv().ArsoniaNum = getgenv().ArsoniaNum + 1
                 local W = Instance.new("TextButton")
                 local X = Instance.new("TextLabel")
                 W.Name = "Toggle"
@@ -397,7 +391,7 @@ function Library:Window(a,b)
                         W.Name = "fuck_this_shit_bro"
                     end
                     T(Z)
-                    getgenv().ArsoniaSettings[V] = {SetVal = funnn2, Val = {Z}}
+                    getgenv().ArsoniaSettings[a] = {SetVal = funnn2, Val = {Z}}
                     Y = Z
                 end
                 W.MouseButton1Click:Connect(
@@ -411,14 +405,12 @@ function Library:Window(a,b)
                         end
                         Y = not Y
                         T(Y)
-                        getgenv().ArsoniaSettings[V] = {SetVal = funnn2, Val = {Y}}
+                        getgenv().ArsoniaSettings[a] = {SetVal = funnn2, Val = {Y}}
                     end
                 )
-                getgenv().ArsoniaSettings[V] = {SetVal = funnn2, Val = {Y}}
+                getgenv().ArsoniaSettings[a] = {SetVal = funnn2, Val = {Y}}
             end
             function S:Color(a, _, T)
-                local V = getgenv().ArsoniaNum
-                getgenv().ArsoniaNum = getgenv().ArsoniaNum + 1
                 local b = Instance.new("TextLabel")
                 local a0 = Instance.new("TextButton")
                 local k = Instance.new("Frame")
@@ -614,7 +606,7 @@ function Library:Window(a,b)
                         y(a9, {BackgroundColor3 = getgenv().WindowThemeColor})
                     end
                     aj = E or false
-                    getgenv().ArsoniaSettings[V] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
+                    getgenv().ArsoniaSettings[a] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
                 end
                 local function al(ai)
                     if ai then
@@ -629,7 +621,7 @@ function Library:Window(a,b)
                         local ar = a2.AbsoluteSize
                         local as = 360 / ar.X
                         a3.Position = UDim2.new(0, ar.X - am * 360 / as, 0, ar.Y - an * 360 / as)
-                        getgenv().ArsoniaSettings[V] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
+                        getgenv().ArsoniaSettings[a] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
                     end
                 end
                 local function at()
@@ -648,7 +640,7 @@ function Library:Window(a,b)
                         T(ai)
                         a3.Position =
                             UDim2.new(0, math.clamp(aw.X + ar.X / 2, 0, ar.X), 0, math.clamp(aw.Y + ar.Y / 2, 0, ar.Y))
-                        getgenv().ArsoniaSettings[V] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
+                        getgenv().ArsoniaSettings[a] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
                         return ai
                     end
                     g.MouseIconEnabled = true
@@ -682,10 +674,10 @@ function Library:Window(a,b)
                             y(a9, {BackgroundColor3 = getgenv().WindowThemeColor})
                         end
                         aj = not aj
-                        getgenv().ArsoniaSettings[V] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
+                        getgenv().ArsoniaSettings[a] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
                     end
                 )
-                getgenv().ArsoniaSettings[V] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
+                getgenv().ArsoniaSettings[a] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
                 spawn(
                     function()
                         h.RenderStepped:Connect(
@@ -734,15 +726,13 @@ function Library:Window(a,b)
                     end
                 )
             end
-            function S:Dropdown(pressff, tbllol, funclol)
+            function S:Dropdown(pressf, tbllol, funclol)
                 if #tbllol > 50 then  
                     local aB = Instance.new("TextLabel")
                     local U = Instance.new("TextButton")
                     local l = Instance.new("ScrollingFrame")
                     local aC = Instance.new("UIListLayout")
                     local T = funclol
-                    local V = getgenv().ArsoniaNum
-                    getgenv().ArsoniaNum = getgenv().ArsoniaNum + 1
                     aB.Name = "Dropdown"
                     aB.Parent = P
                     aB.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -751,7 +741,7 @@ function Library:Window(a,b)
                     aB.Size = UDim2.new(0, 178, 0, 39)
                     aB.ZIndex = 2
                     aB.Font = Enum.Font.RobotoMono
-                    aB.Text = pressff
+                    aB.Text = pressf
                     aB.TextColor3 = Color3.new(0.301961, 0.301961, 0.301961)
                     aB.TextSize = 14
                     aB.TextStrokeTransparency = 0.40000000596046
@@ -783,7 +773,7 @@ function Library:Window(a,b)
                     aC.SortOrder = Enum.SortOrder.LayoutOrder
                     local function aG(aH, aI)
                         y(l, {Size = UDim2.new(0, 223, 0, 400)})
-                        for t, a0 in next, l:GetChildren() do
+                        for _, a0 in next, l:GetChildren() do
                             if a0:IsA("TextButton") and a0 ~= U then
                                 y(a0, {Size = UDim2.new(0, 223, 0, aH)})
                             end
@@ -824,7 +814,7 @@ function Library:Window(a,b)
                                     a0.Visible = true
                                 end
                             end
-                            getgenv().ArsoniaSettings[V] = {SetVal = funnn2, Val = {Y}}
+                            getgenv().ArsoniaSettings[pressf] = {SetVal = funnn2, Val = {Y}}
                         end
                         aJ[a] = aL
                         U.MouseButton1Click:Connect(aL)
@@ -853,15 +843,13 @@ function Library:Window(a,b)
                             T.Visible = false
                         end
                     end
-                    getgenv().ArsoniaSettings[V] = {SetVal = funnn2, Val = {Y}}
+                    getgenv().ArsoniaSettings[pressf] = {SetVal = funnn2, Val = {Y}}
                 else
                     local aB = Instance.new("TextLabel")
                     local U = Instance.new("TextButton")
                     local l = Instance.new("Frame")
                     local aC = Instance.new("UIListLayout")
                     local T = funclol
-                    local V = getgenv().ArsoniaNum
-                    getgenv().ArsoniaNum = getgenv().ArsoniaNum + 1
                     aB.Name = "Dropdown"
                     aB.Parent = P
                     aB.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -870,7 +858,7 @@ function Library:Window(a,b)
                     aB.Size = UDim2.new(0, 178, 0, 39)
                     aB.ZIndex = 2
                     aB.Font = Enum.Font.RobotoMono
-                    aB.Text = pressff
+                    aB.Text = pressf
                     aB.TextColor3 = Color3.new(0.301961, 0.301961, 0.301961)
                     aB.TextSize = 14
                     aB.TextStrokeTransparency = 0.40000000596046
@@ -942,7 +930,7 @@ function Library:Window(a,b)
                                     a0.Visible = true
                                 end
                             end
-                            getgenv().ArsoniaSettings[V] = {SetVal = funnn2, Val = {Y}}
+                            getgenv().ArsoniaSettings[pressf] = {SetVal = funnn2, Val = {Y}}
                         end
                         aJ[a] = aL
                         U.MouseButton1Click:Connect(aL)
@@ -959,7 +947,7 @@ function Library:Window(a,b)
                             end
                         end
                     )
-                    for t, a0 in next, l:GetChildren() do
+                    for _, a0 in next, l:GetChildren() do
                         if a0:IsA("TextButton") and a0 ~= U then
                             a0.Visible = true
                         end
@@ -970,7 +958,7 @@ function Library:Window(a,b)
                             T.Visible = false
                         end
                     end
-                    getgenv().ArsoniaSettings[V] = {SetVal = funnn2, Val = {Y}}
+                    getgenv().ArsoniaSettings[pressf] = {SetVal = funnn2, Val = {Y}}
                 end
             end
             function S:Keybind(a, aO, T)
@@ -1005,18 +993,16 @@ function Library:Window(a,b)
                 U.TextSize = 14
                 U.TextStrokeTransparency = 0.4
                 U.TextXAlignment = Enum.TextXAlignment.Right
-                local aU = getgenv().ArsoniaNum
-                getgenv().ArsoniaNum = getgenv().ArsoniaNum + 1
                 local fucku = function(aV)
                     pcall(function()
                         KeyCodeName = aV
                         U.Text = KeyCodeName
                         aQ = aV
                         aS = false
-                        getgenv().ArsoniaSettings[aU] = {SetVal = fucku, Val = {KeyCodeName}}
+                        getgenv().ArsoniaSettings[a] = {SetVal = fucku, Val = {KeyCodeName}}
                     end)
                 end
-                getgenv().ArsoniaSettings[aU] = {SetVal = fucku, Val = {KeyCodeName}}
+                getgenv().ArsoniaSettings[a] = {SetVal = fucku, Val = {KeyCodeName}}
                 U.MouseButton1Click:Connect(
                     function()
                         pcall(function()
@@ -1038,7 +1024,7 @@ function Library:Window(a,b)
                                 U.Text = KeyCodeName
                                 aS = false
                                 aQ = aW
-                                getgenv().ArsoniaSettings[aU] = {SetVal = fucku, Val = {KeyCodeName}}
+                                getgenv().ArsoniaSettings[a] = {SetVal = fucku, Val = {KeyCodeName}}
                             end
                         end)
                     end
@@ -1073,8 +1059,6 @@ function Library:Window(a,b)
                 end
             end
             function S:Slider(a, aX, aY, aO, T)
-                local V = getgenv().ArsoniaNum
-                getgenv().ArsoniaNum = getgenv().ArsoniaNum + 1
                 aO = aO - aX
                 local aZ = Instance.new("TextLabel")
                 local W = Instance.new("TextButton")
@@ -1152,7 +1136,7 @@ function Library:Window(a,b)
                         b0.Text = b6
                     end
                     T(tonumber(b0.Text))
-                    getgenv().ArsoniaSettings[V] = {SetVal = b3, Val = {tonumber(b0.Text)}}
+                    getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {tonumber(b0.Text)}}
                 end
                 b0.FocusLost:Connect(
                     function()
@@ -1174,7 +1158,7 @@ function Library:Window(a,b)
                                 b0.Text = b6
                             end
                             T(tonumber(b0.Text))
-                            getgenv().ArsoniaSettings[V] = {SetVal = b3, Val = {tonumber(b0.Text)}}
+                            getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {tonumber(b0.Text)}}
                         else
                             local b4 = a0.Position
                             local b5 = (tonumber(b0.Text) - aX) * 100 / aY / 100
@@ -1193,7 +1177,7 @@ function Library:Window(a,b)
                                 b0.Text = b6
                             end
                             T(tonumber(b0.Text))
-                            getgenv().ArsoniaSettings[V] = {SetVal = b3, Val = {tonumber(b0.Text)}}
+                            getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {tonumber(b0.Text)}}
                         end
                     end
                 )
@@ -1265,7 +1249,7 @@ function Library:Window(a,b)
                             if b2 ~= tonumber(b0.Text) then
                                 b2 = tonumber(b0.Text)
                                 T(tonumber(b0.Text))
-                                getgenv().ArsoniaSettings[V] = {SetVal = b3, Val = {tonumber(b0.Text)}}
+                                getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {tonumber(b0.Text)}}
                             end
                         end
                     end
@@ -1289,11 +1273,9 @@ function Library:Window(a,b)
                     end
                     T(tonumber(b0.Text))
                 end
-                getgenv().ArsoniaSettings[V] = {SetVal = b3, Val = {tonumber(b0.Text)}}
+                getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {tonumber(b0.Text)}}
             end
             function S:ToggleSlider(a, aX, aY, aO, T)
-                local V = getgenv().ArsoniaNum
-                getgenv().ArsoniaNum = getgenv().ArsoniaNum + 1
                 aO = tonumber(aO - aX) or aX
                 local aZ = Instance.new("TextLabel")
                 local W = Instance.new("TextButton")
@@ -1390,7 +1372,7 @@ function Library:Window(a,b)
                     end
                     bc = D
                     T(bc, tonumber(b0.Text))
-                    getgenv().ArsoniaSettings[V] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
+                    getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
                 end
                 b0.FocusLost:Connect(
                     function()
@@ -1412,7 +1394,7 @@ function Library:Window(a,b)
                                 b0.Text = b6
                             end
                             T(bc, tonumber(b0.Text))
-                            getgenv().ArsoniaSettings[V] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
+                            getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
                         else
                             local b4 = a0.Position
                             local b5 = (tonumber(b0.Text) - aX) * 100 / aY / 100
@@ -1431,7 +1413,7 @@ function Library:Window(a,b)
                                 b0.Text = b6
                             end
                             T(bc, tonumber(b0.Text))
-                            getgenv().ArsoniaSettings[V] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
+                            getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
                         end
                     end
                 )
@@ -1451,7 +1433,7 @@ function Library:Window(a,b)
                         end
                         bc = not bc
                         T(bc, tonumber(b0.Text))
-                        getgenv().ArsoniaSettings[V] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
+                        getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
                     end
                 )
                 function snap(b7, b8)
@@ -1518,7 +1500,7 @@ function Library:Window(a,b)
                             if b2 ~= tonumber(b0.Text) then
                                 b2 = tonumber(b0.Text)
                                 T(bc, tonumber(b0.Text))
-                                getgenv().ArsoniaSettings[V] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
+                                getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
                             end
                         end
                     end
@@ -1542,10 +1524,9 @@ function Library:Window(a,b)
                     end
                     T(bc, tonumber(b0.Text))
                 end
-                getgenv().ArsoniaSettings[V] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
+                getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
             end
             function S:Textbox(a, aO, T)
-                aO = tostring(aO) or ""
                 local bd = Instance.new("TextLabel")
                 local be = Instance.new("TextBox")
                 local l = Instance.new("Frame")
@@ -1597,10 +1578,8 @@ function Library:Window(a,b)
                         T(be.Text)
                     end
                 )
-                if aO ~= "" then
-                    l:TweenSizeAndPosition(UDim2.new(0, 220, 0, 1), UDim2.new(-0.009, 0, 1, 0), nil, nil, 0.5)
-                    T(be.Text)
-                end
+                l:TweenSizeAndPosition(UDim2.new(0, 220, 0, 1), UDim2.new(-0.009, 0, 1, 0), nil, nil, 0.5)
+                T(aO)
             end
             function S:Textlabel(a)
                 local bd = Instance.new("TextLabel")
