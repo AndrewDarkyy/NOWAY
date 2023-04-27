@@ -1,26 +1,21 @@
 local Library = {}
 function Library:Window(a,b)
     -- sufi is dum shit
+    function RoundThingy(sufidumass, NO_FATHER_SUFI)
+        local lol = Instance.new("UICorner", NO_FATHER_SUFI)
+        lol.CornerRadius = UDim.new(0, sufidumass)
+    end
     local f = game:GetService("CoreGui")
     local g = game:GetService("UserInputService")
-    local h = game:GetService("RunService")
     local i = Instance.new("ScreenGui")
     local j = Instance.new("Frame")
-    local lol = Instance.new("UICorner")
-    lol.Parent = j
-    lol.CornerRadius = UDim.new(0, 3)
+    RoundThingy(5, j)
     local k = Instance.new("Frame")
-    local lol = Instance.new("UICorner")
-    lol.Parent = k
-    lol.CornerRadius = UDim.new(0, 3)
+    RoundThingy(5, k)
     local l = Instance.new("Frame")
-    local lol = Instance.new("UICorner")
-    lol.Parent = l
-    lol.CornerRadius = UDim.new(0, 3)
+    RoundThingy(5, l)
     local m = Instance.new("Frame")
-    local lol = Instance.new("UICorner")
-    lol.Parent = m
-    lol.CornerRadius = UDim.new(0, 3)
+    RoundThingy(5, m)
     local n = Instance.new("UIListLayout")
     local o = Instance.new("TextLabel")
     local p = Instance.new("Frame")
@@ -28,10 +23,10 @@ function Library:Window(a,b)
     local r = Instance.new("Frame")
     local s
     local RainbowCum = Color3.new()
-    getgenv().ArsoniaSettings = {}
-    getgenv().WindowThemeColor = b
-    getgenv().GuiToggle = Enum.KeyCode.RightShift
-    for _, u in next, f:GetChildren() do
+    ArsoniaSettings = {}
+    WindowThemeColor = b
+    GuiToggle = Enum.KeyCode.RightShift
+    for _,u in next, f:GetChildren() do
         if u.Name == "tcv10" then
             u:Destroy()
         end
@@ -44,7 +39,7 @@ function Library:Window(a,b)
     g.InputBegan:Connect(
         function(v, w)
             if not w then
-                if v.KeyCode == Enum.KeyCode.P or v.KeyCode == getgenv().GuiToggle then
+                if v.KeyCode == Enum.KeyCode.P or v.KeyCode == GuiToggle then
                     i.Enabled = not i.Enabled
                 end
             end
@@ -54,25 +49,25 @@ function Library:Window(a,b)
     j.Parent = i
     j.Active = true
     j.Draggable = true
-    j.BackgroundColor3 = Color3.new(0.0509804, 0.0509804, 0.0509804)
+    j.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
     j.BorderColor3 = Color3.new(0, 0, 0)
     j.Position = UDim2.new(0.355398446, 0, 0.184466019, 0)
     j.Size = UDim2.new(0, 513, 0, 27)
     k.Name = "Main"
     k.Parent = j
     k.Active = true
-    k.BackgroundColor3 = Color3.new(0.0509804, 0.0509804, 0.0509804)
+    k.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
     k.BorderColor3 = Color3.new(0, 0, 0)
     k.Position = UDim2.new(-0.001, 0, 0.023466019, 0)
     k.Size = UDim2.new(0, 513, 0, 700)
     l.Parent = k
-    l.BackgroundColor3 = Color3.new(0.0862745, 0.0862745, 0.0862745)
+    l.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
     l.BorderColor3 = Color3.new(0, 0, 0)
     l.Position = UDim2.new(0.0137524558, 0, 0.0470383018, 0)
     l.Size = UDim2.new(0, 499, 0, k.Size.Y.Offset - 38)
     m.Name = "Heading"
     m.Parent = k
-    m.BackgroundColor3 = Color3.new(1, 1, 1)
+    m.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
     m.BackgroundTransparency = 1
     m.BorderColor3 = Color3.new(0, 0, 0)
     m.BorderSizePixel = 0
@@ -84,33 +79,33 @@ function Library:Window(a,b)
     n.Padding = UDim.new(0, 9)
     o.Name = "Title"
     o.Parent = m
-    o.BackgroundColor3 = Color3.new(1, 1, 1)
+    o.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
     o.BackgroundTransparency = 1
     o.Position = UDim2.new(0.0137524558, 0, 0.00199999125, 0)
     o.Size = UDim2.new(0, #a * 6.833333333333333, 0, 23)
     o.Font = Enum.Font.RobotoMono
     o.Text = a
-    o.TextSize = 14
+    o.TextSize = 14.5
     o.TextColor3 = o.TextColor3
     o.TextStrokeTransparency = 0.4
     o.TextXAlignment = Enum.TextXAlignment.Left
     local x = Instance.new("Frame")
     x.Name = "Background"
     x.Parent = l
-    x.BackgroundColor3 = Color3.new(0.141176, 0.141176, 0.141176)
+    x.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
     x.BorderColor3 = Color3.new(0, 0, 0)
     x.Position = UDim2.new(0.0155808367, 0, 0.0434783697, 0)
     x.Size = UDim2.new(0, 485, 0, l.Size.Y.Offset - 34)
     local x = Instance.new("ScrollingFrame")
     x.Name = "Background"
     x.Parent = l
-    x.BackgroundColor3 = Color3.new(0.141176, 0.141176, 0.141176)
+    x.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
     x.BackgroundTransparency = 1
     x.BorderColor3 = Color3.new(0, 0, 0)
     x.Position = UDim2.new(0.0155808367, 0, 0.0434783697, 0)
     x.Size = UDim2.new(0, 495, 0, l.Size.Y.Offset - 21)
     x.ScrollBarImageTransparency = 1
-    x.CanvasSize = UDim2.new(0, 495, 0, l.Size.Y.Offset + 700)
+    x.CanvasSize = UDim2.new(0, 495, 0, l.Size.Y.Offset + 725)
     p.Name = "Content"
     p.Parent = x
     p.BackgroundColor3 = Color3.new(0, 0, 0)
@@ -119,7 +114,7 @@ function Library:Window(a,b)
     p.Position = UDim2.new(0.0124223605, 0, 0.0099593997, 0)
     p.Size = UDim2.new(0, 470, 0, x.CanvasSize.Y.Offset)
     r.Parent = l
-    r.BackgroundColor3 = Color3.new(1, 1, 1)
+    r.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
     r.BackgroundTransparency = 1
     r.BorderColor3 = Color3.new(0, 0, 0)
     r.BorderSizePixel = 0
@@ -139,43 +134,39 @@ function Library:Window(a,b)
         end
     end)
     spawn(function()
-        while game.RunService.RenderStepped:Wait() do
-            for az = 0, 1, 0.0023 do
-                game.RunService.RenderStepped:Wait()
+        while wait() do
+            for az = 0, 1, 0.0025 do
+                wait()
                 RainbowCum = Color3.fromHSV(az, 1, 1)
             end
         end
     end)
-    h.RenderStepped:Connect(
+    spawn(
         function()
-            o.TextColor3 = getgenv().TitleColor
-            framePosLeft = 1
-            framePosRight = 1
-            for _, B in next, p:GetChildren() do
-                B.Position = UDim2.new(-0.00377, 0, 0, framePosLeft - 2)
-                framePosLeft = framePosLeft + B.Size.Y.Offset + 5
-                if p.Size.Y.Offset - framePosLeft + 7 < 0 then
-                    B.Position = UDim2.new(0.507, 0, 0, -1)
+            while wait() do
+                o.TextColor3 = TitleColor
+                framePosLeft = 1
+                framePosRight = 1
+                for _, B in next, p:GetChildren() do
+                    B.Position = UDim2.new(-0.00377, 0, 0, framePosLeft - 2)
+                    framePosLeft = framePosLeft + B.Size.Y.Offset + 5
+                    if p.Size.Y.Offset - framePosLeft + 7 < 0 then
+                        B.Position = UDim2.new(0.507, 0, 0, -1)
+                    end
+                    if B.Position.X.Scale >= 0.507 then
+                        B.Position = UDim2.new(0.507, 0, 0, framePosRight - 2)
+                        framePosRight = framePosRight + B.Size.Y.Offset + 5
+                    end
                 end
-                if B.Position.X.Scale >= 0.507 then
-                    B.Position = UDim2.new(0.507, 0, 0, framePosRight - 2)
-                    framePosRight = framePosRight + B.Size.Y.Offset + 5
-                end
-            end
-            ZIndexNum = 0
-            ZIndexMax = 0
-            for _, C in next, DESCS_LOL do
-                if C.Name == "Section" or C.Name == "Dropdown" or C.Name == "Color" then
-                    ZIndexMax = ZIndexMax + 1
-                end
-            end
-            for _, C in next, DESCS_LOL do
-                if C.Name == "Section" or C.Name == "Dropdown" or C.Name == "Color" then
-                    C.ZIndex = 2 + ZIndexMax - ZIndexNum
-                    ZIndexNum = ZIndexNum + 1
-                end
-                if C.Name == "fuck_this_shit_bro" then
-                    C.BackgroundColor3 = getgenv().WindowThemeColor
+                ZIndexNum = 0
+                for _, C in next, DESCS_LOL do
+                    if C.Name == "fuck_this_shit_bro" then
+                        C.BackgroundColor3 = WindowThemeColor
+                    end
+                    if C.Name == "Section" or C.Name == "Dropdown" or C.Name == "Color" then
+                        C.ZIndex = 24 - ZIndexNum
+                        ZIndexNum = ZIndexNum + 1
+                    end
                 end
             end
         end
@@ -184,39 +175,39 @@ function Library:Window(a,b)
     local E = Instance.new("TextLabel")
     E.Name = "Differ"
     E.Parent = m
-    E.BackgroundColor3 = Color3.new(1, 1, 1)
+    E.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
     E.BackgroundTransparency = 1
     E.Position = UDim2.new(0.0137524558, 0, 0.00199999125, 0)
     E.Size = UDim2.new(0, 6, 0, 23)
     E.Font = Enum.Font.RobotoMono
     E.Text = ""
-    E.TextColor3 = Color3.fromRGB(255, 255, 255)
-    E.TextSize = 14
+    E.TextColor3 = Color3.fromRGB(200, 200, 200)
+    E.TextSize = 14.5
     E.TextStrokeTransparency = 0.4
     E.TextXAlignment = Enum.TextXAlignment.Left
     D.Name = "Label"
     D.Parent = m
-    D.BackgroundColor3 = Color3.new(1, 1, 1)
+    D.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
     D.BackgroundTransparency = 1
     D.Position = UDim2.new(0.0137524558, 0, 0.00199999125, 0)
     D.Size = UDim2.new(0, 6.833333333333333, 0, 23)
     D.Font = Enum.Font.RobotoMono
     D.Text = ""
-    D.TextColor3 = Color3.new(1, 1, 1)
-    D.TextSize = 14
+    D.TextColor3 = Color3.fromRGB(200, 200, 200)
+    D.TextSize = 14.5
     D.TextStrokeTransparency = 0.4
     local D = Instance.new("TextLabel")
     local E = Instance.new("TextLabel")
     E.Name = "Differ"
     E.Parent = m
-    E.BackgroundColor3 = Color3.new(1, 1, 1)
+    E.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
     E.BackgroundTransparency = 1
     E.Position = UDim2.new(0.0137524558, 0, 0.00199999125, 0)
     E.Size = UDim2.new(0, 6, 0, 23)
     E.Font = Enum.Font.RobotoMono
     E.Text = ""
-    E.TextColor3 = Color3.fromRGB(255, 255, 255)
-    E.TextSize = 14
+    E.TextColor3 = Color3.fromRGB(200, 200, 200)
+    E.TextSize = 14.5
     E.TextStrokeTransparency = 0.4
     spawn(
         function()
@@ -235,7 +226,7 @@ function Library:Window(a,b)
                         altersize(F)
                         TabCounter = TabCounter + 1
                         if TabCounter == 1 then
-                            F.TextColor3 = Color3.fromRGB(255, 255, 255)
+                            F.TextColor3 = Color3.fromRGB(200, 200, 200)
                             for _, H in next, F.Contents:GetChildren() do
                                 s = F
                                 H.Visible = true
@@ -255,24 +246,24 @@ function Library:Window(a,b)
         local M = Instance.new("Folder")
         L.Name = "Tab"
         L.Parent = r
-        L.BackgroundColor3 = Color3.new(1, 1, 1)
+        L.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
         L.BackgroundTransparency = 1
         L.Size = UDim2.new(0, 24, 0, 23)
         L.AutoButtonColor = false
         L.Font = Enum.Font.RobotoMono
         L.Text = a
-        L.TextColor3 = Color3.new(1, 1, 1)
-        L.TextSize = 14
+        L.TextColor3 = Color3.fromRGB(200, 200, 200)
+        L.TextSize = 14.5
         L.TextStrokeTransparency = 0.4
         M.Name = "Contents"
         M.Parent = L
         L.MouseButton1Click:Connect(
             function()
-                for t, F in next, r:GetChildren() do
+                for _, F in next, r:GetChildren() do
                     if F:IsA("TextButton") then
                         if F ~= L then
                             y(F, {TextColor3 = Color3.fromRGB(125, 125, 125)})
-                            for t, H in next, p:GetChildren() do
+                            for _, H in next, p:GetChildren() do
                                 if H:IsA("Frame") then
                                     H.Visible = false
                                     H.Parent = s.Contents
@@ -281,8 +272,8 @@ function Library:Window(a,b)
                         end
                     end
                 end
-                y(L, {TextColor3 = Color3.fromRGB(255, 255, 255)})
-                for t, H in next, M:GetChildren() do
+                y(L, {TextColor3 = Color3.fromRGB(200, 200, 200)})
+                for _, H in next, M:GetChildren() do
                     s = L
                     H.Visible = true
                     H.Parent = p
@@ -296,8 +287,9 @@ function Library:Window(a,b)
             local Q = Instance.new("TextLabel")
             local R = Instance.new("UIListLayout")
             O.Name = "Section"
+            RoundThingy(5, O)
             O.Parent = M
-            O.BackgroundColor3 = Color3.new(0.0862745, 0.0862745, 0.0862745)
+            O.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
             O.BorderColor3 = Color3.new(0, 0, 0)
             O.Position = UDim2.new(0.0120000001, 0, 0.00899999961, 0)
             O.Size = UDim2.new(0, 235, 0, 247)
@@ -312,14 +304,14 @@ function Library:Window(a,b)
             P.Size = UDim2.new(0, 220, 0, 84)
             Q.Name = "Title"
             Q.Parent = P
-            Q.BackgroundColor3 = Color3.new(1, 1, 1)
+            Q.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
             Q.BackgroundTransparency = 1
             Q.Position = UDim2.new(0.0260000005, 0, -1.05768967, 0)
             Q.Size = UDim2.new(0, 178, 0, 12)
             Q.Font = Enum.Font.RobotoMono
             Q.Text = a
-            Q.TextColor3 = Color3.new(1, 1, 1)
-            Q.TextSize = 14
+            Q.TextColor3 = Color3.fromRGB(200, 200, 200)
+            Q.TextSize = 14.5
             Q.TextStrokeTransparency = 0.4
             Q.TextXAlignment = Enum.TextXAlignment.Left
             R.Parent = P
@@ -342,16 +334,17 @@ function Library:Window(a,b)
                 local U = Instance.new("TextButton")
                 U.Name = "Button"
                 U.Parent = P
-                U.BackgroundColor3 = Color3.new(0.167, 0.167, 0.167)
+                U.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
                 U.BorderColor3 = Color3.new(0, 0, 0)
                 U.Position = UDim2.new(-0.00888097659, 0, 0.284795314, 0)
                 U.Size = UDim2.new(0, 223, 0, 18)
                 U.AutoButtonColor = false
                 U.Font = Enum.Font.RobotoMono
                 U.Text = a
-                U.TextColor3 = Color3.new(1, 1, 1)
-                U.TextSize = 14
+                U.TextColor3 = Color3.fromRGB(200, 200, 200)
+                U.TextSize = 14.5
                 U.TextStrokeTransparency = 0.4
+                RoundThingy(2, U)
                 U.MouseButton1Click:Connect(T)
             end
             function S:Toggle(a, T)
@@ -359,7 +352,8 @@ function Library:Window(a,b)
                 local X = Instance.new("TextLabel")
                 W.Name = "Toggle"
                 W.Parent = P
-                W.BackgroundColor3 = Color3.new(0.167, 0.167, 0.167)
+                RoundThingy(2, W)
+                W.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
                 W.BorderColor3 = Color3.new(0, 0, 0)
                 W.Position = UDim2.new(-0.00888097659, 0, 0.284795314, 0)
                 W.Size = UDim2.new(0, 13, 0, 13)
@@ -367,48 +361,48 @@ function Library:Window(a,b)
                 W.Font = Enum.Font.RobotoMono
                 W.Text = ""
                 W.Name = "nah_bro"
-                W.TextColor3 = Color3.new(1, 1, 1)
-                W.TextSize = 14
+                W.TextColor3 = Color3.fromRGB(200, 200, 200)
+                W.TextSize = 14.5
                 W.TextStrokeTransparency = 0.4
                 X.Parent = W
-                X.BackgroundColor3 = Color3.new(1, 1, 1)
+                X.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
                 X.BackgroundTransparency = 1
                 X.Position = UDim2.new(1.67999995, 0, -0.0149999997, 0)
                 X.Size = UDim2.new(0, 199, 0, 13)
                 X.Font = Enum.Font.RobotoMono
                 X.Text = a
                 X.TextColor3 = Color3.new(0.301961, 0.301961, 0.301961)
-                X.TextSize = 14
+                X.TextSize = 14.5
                 X.TextStrokeTransparency = 0.4
                 X.TextXAlignment = Enum.TextXAlignment.Left
                 local Y = false
                 local funnn2 = function(Z)
                     if not Z then
-                        y(W, {BackgroundColor3 = Color3.fromRGB(45, 45, 45)})
+                        y(W, {BackgroundColor3 = Color3.fromRGB(35, 35, 35)})
                         W.Name = "love_this_shit_bro"
                     else
-                        y(W, {BackgroundColor3 = getgenv().WindowThemeColor})
+                        y(W, {BackgroundColor3 = WindowThemeColor})
                         W.Name = "fuck_this_shit_bro"
                     end
                     T(Z)
-                    getgenv().ArsoniaSettings[a] = {SetVal = funnn2, Val = {Z}}
+                    ArsoniaSettings[a] = {SetVal = funnn2, Val = {Z}}
                     Y = Z
                 end
                 W.MouseButton1Click:Connect(
                     function()
                         if Y then
-                            y(W, {BackgroundColor3 = Color3.fromRGB(45, 45, 45)})
+                            y(W, {BackgroundColor3 = Color3.fromRGB(35, 35, 35)})
                             W.Name = "love_this_shit_bro"
                         else
-                            y(W, {BackgroundColor3 = getgenv().WindowThemeColor})
+                            y(W, {BackgroundColor3 = WindowThemeColor})
                             W.Name = "fuck_this_shit_bro"
                         end
                         Y = not Y
                         T(Y)
-                        getgenv().ArsoniaSettings[a] = {SetVal = funnn2, Val = {Y}}
+                        ArsoniaSettings[a] = {SetVal = funnn2, Val = {Y}}
                     end
                 )
-                getgenv().ArsoniaSettings[a] = {SetVal = funnn2, Val = {Y}}
+                ArsoniaSettings[a] = {SetVal = funnn2, Val = {Y}}
             end
             function S:Color(a, _, T)
                 local b = Instance.new("TextLabel")
@@ -426,7 +420,7 @@ function Library:Window(a,b)
                 local X = Instance.new("TextLabel")
                 b.Name = "Color"
                 b.Parent = P
-                b.BackgroundColor3 = Color3.new(1, 1, 1)
+                b.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
                 b.BackgroundTransparency = 1
                 b.Position = UDim2.new(1.67999995, 0, -0.0149999997, 0)
                 b.Size = UDim2.new(0, 199, 0, 11)
@@ -434,23 +428,23 @@ function Library:Window(a,b)
                 b.Font = Enum.Font.RobotoMono
                 b.Text = a
                 b.TextColor3 = Color3.new(0.301961, 0.301961, 0.301961)
-                b.TextSize = 14
+                b.TextSize = 14.5
                 b.TextStrokeTransparency = 0.40000000596046
                 b.TextXAlignment = Enum.TextXAlignment.Left
                 a0.Parent = b
-                a0.BackgroundColor3 = Color3.new(1, 1, 1)
+                a0.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
                 a0.BorderColor3 = Color3.new(0, 0, 0)
                 a0.Position = UDim2.new(1.05142057, 0, -0.0228970051, 0)
                 a0.Size = UDim2.new(0, 13, 0, 13)
                 a0.AutoButtonColor = false
                 a0.Font = Enum.Font.RobotoMono
                 a0.Text = ""
-                a0.TextColor3 = Color3.new(1, 1, 1)
-                a0.TextSize = 14
+                a0.TextColor3 = Color3.fromRGB(200, 200, 200)
+                a0.TextSize = 14.5
                 a0.TextStrokeTransparency = 0
                 k.Name = "Main"
                 k.Parent = b
-                k.BackgroundColor3 = Color3.new(1, 1, 1)
+                k.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
                 k.BackgroundTransparency = 1
                 k.BorderSizePixel = 0
                 k.ClipsDescendants = true
@@ -470,7 +464,7 @@ function Library:Window(a,b)
                 a2.Name = "Gradient"
                 a2.Parent = a1
                 a2.AnchorPoint = Vector2.new(0.5, 0.5)
-                a2.BackgroundColor3 = Color3.new(1, 1, 1)
+                a2.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
                 a2.BorderColor3 = Color3.new(0.627451, 0.627451, 0.627451)
                 a2.BorderSizePixel = 0
                 a2.ClipsDescendants = true
@@ -480,7 +474,7 @@ function Library:Window(a,b)
                 a2.Image = "rbxassetid://328298876"
                 a3.Name = "Cursor"
                 a3.Parent = a2
-                a3.BackgroundColor3 = Color3.new(1, 1, 1)
+                a3.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
                 a3.BorderColor3 = Color3.new(0, 0, 0)
                 a3.BorderSizePixel = 0
                 a3.Position = UDim2.new(1, -1, 0, 1)
@@ -511,8 +505,8 @@ function Library:Window(a,b)
                 a6.PlaceholderColor3 = Color3.new(0.764706, 0.764706, 0.764706)
                 a6.PlaceholderText = "R"
                 a6.Text = ""
-                a6.TextColor3 = Color3.new(1, 1, 1)
-                a6.TextSize = 14
+                a6.TextColor3 = Color3.fromRGB(200, 200, 200)
+                a6.TextSize = 14.5
                 a7.Name = "G"
                 a7.Parent = a1
                 a7.BackgroundColor3 = Color3.new(0.105882, 0.105882, 0.105882)
@@ -523,8 +517,8 @@ function Library:Window(a,b)
                 a7.PlaceholderColor3 = Color3.new(0.764706, 0.764706, 0.764706)
                 a7.PlaceholderText = "G"
                 a7.Text = ""
-                a7.TextColor3 = Color3.new(1, 1, 1)
-                a7.TextSize = 14
+                a7.TextColor3 = Color3.fromRGB(200, 200, 200)
+                a7.TextSize = 14.5
                 a8.Name = "B"
                 a8.Parent = a1
                 a8.BackgroundColor3 = Color3.new(0.105882, 0.105882, 0.105882)
@@ -535,33 +529,31 @@ function Library:Window(a,b)
                 a8.PlaceholderColor3 = Color3.new(0.764706, 0.764706, 0.764706)
                 a8.PlaceholderText = "B"
                 a8.Text = ""
-                a8.TextColor3 = Color3.new(1, 1, 1)
-                a8.TextSize = 14
+                a8.TextColor3 = Color3.fromRGB(200, 200, 200)
+                a8.TextSize = 14.5
                 a9.Name = "Rainbow"
                 a9.Parent = a1
-                a9.BackgroundColor3 = Color3.new(0.167, 0.167, 0.167)
+                a9.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
                 a9.BorderColor3 = Color3.new(0, 0, 0)
                 a9.Position = UDim2.new(0.0469999984, 0, 0.720000029, 0)
                 a9.Size = UDim2.new(0, 13, 0, 13)
                 a9.AutoButtonColor = false
                 a9.Font = Enum.Font.RobotoMono
                 a9.Text = ""
-                a9.TextColor3 = Color3.new(1, 1, 1)
-                a9.TextSize = 14
+                a9.TextColor3 = Color3.fromRGB(200, 200, 200)
+                a9.TextSize = 14.5
                 a9.TextStrokeTransparency = 0
                 X.Parent = a9
-                X.BackgroundColor3 = Color3.new(1, 1, 1)
+                X.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
                 X.BackgroundTransparency = 1
                 X.Position = UDim2.new(1.83384347, 0, -0.0150005631, 0)
                 X.Size = UDim2.new(0, 67, 0, 13)
                 X.Font = Enum.Font.RobotoMono
                 X.Text = "Rainbow"
                 X.TextColor3 = Color3.new(0.301961, 0.301961, 0.301961)
-                X.TextSize = 14
+                X.TextSize = 14.5
                 X.TextStrokeTransparency = 0.40000000596046
                 X.TextXAlignment = Enum.TextXAlignment.Left
-                local aa = game:GetService("Players").LocalPlayer
-                local ab = aa:GetMouse()
                 local ac = false
                 local function ad(ae, af, ag)
                     if ae then
@@ -600,13 +592,13 @@ function Library:Window(a,b)
                     al(D)
                     T(D)
                     if not E then
-                        y(a9, {BackgroundColor3 = Color3.fromRGB(45, 45, 45)})
+                        y(a9, {BackgroundColor3 = Color3.fromRGB(35, 35, 35)})
                         counter = 0
                     else
-                        y(a9, {BackgroundColor3 = getgenv().WindowThemeColor})
+                        y(a9, {BackgroundColor3 = WindowThemeColor})
                     end
                     aj = E or false
-                    getgenv().ArsoniaSettings[a] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
+                    ArsoniaSettings[a] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
                 end
                 local function al(ai)
                     if ai then
@@ -621,18 +613,18 @@ function Library:Window(a,b)
                         local ar = a2.AbsoluteSize
                         local as = 360 / ar.X
                         a3.Position = UDim2.new(0, ar.X - am * 360 / as, 0, ar.Y - an * 360 / as)
-                        getgenv().ArsoniaSettings[a] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
+                        ArsoniaSettings[a] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
                     end
                 end
                 local function at()
-                    local au = Vector2.new(ab.X, ab.Y)
+                    local au = Vector2.new(Mouse.X, Mouse.Y)
                     local av = a2.AbsolutePosition
                     local ar = a2.AbsoluteSize
                     if au.X < av.X + ar.X and au.X > av.X and (au.Y < av.Y + ar.Y and au.Y > av.Y) then
                         local ar = a2.AbsoluteSize
                         g.MouseIconEnabled = false
                         local as = 360 / ar.X
-                        local aw = Vector2.new(ab.X, ab.Y) - (a2.AbsolutePosition + ar / 2)
+                        local aw = Vector2.new(Mouse.X, Mouse.Y) - (a2.AbsolutePosition + ar / 2)
                         local ax = math.abs((aw.X * as - 180) / 360)
                         local ay = math.abs((aw.Y * as - 180) / 360)
                         local ai = Color3.fromHSV(ax, ay, 1)
@@ -640,7 +632,7 @@ function Library:Window(a,b)
                         T(ai)
                         a3.Position =
                             UDim2.new(0, math.clamp(aw.X + ar.X / 2, 0, ar.X), 0, math.clamp(aw.Y + ar.Y / 2, 0, ar.Y))
-                        getgenv().ArsoniaSettings[a] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
+                        ArsoniaSettings[a] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
                         return ai
                     end
                     g.MouseIconEnabled = true
@@ -650,7 +642,7 @@ function Library:Window(a,b)
                     al(_)
                 else
                     T = _
-                    al(Color3.fromRGB(255, 255, 255))
+                    al(Color3.fromRGB(200, 200, 200))
                 end
                 ah()
                 a0.MouseButton1Click:Connect(
@@ -668,28 +660,27 @@ function Library:Window(a,b)
                 a9.MouseButton1Click:Connect(
                     function()
                         if aj then
-                            y(a9, {BackgroundColor3 = Color3.fromRGB(45, 45, 45)})
+                            y(a9, {BackgroundColor3 = Color3.fromRGB(35, 35, 35)})
                             counter = 0
                         else
-                            y(a9, {BackgroundColor3 = getgenv().WindowThemeColor})
+                            y(a9, {BackgroundColor3 = WindowThemeColor})
                         end
                         aj = not aj
-                        getgenv().ArsoniaSettings[a] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
+                        ArsoniaSettings[a] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
                     end
                 )
-                getgenv().ArsoniaSettings[a] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
+                ArsoniaSettings[a] = {SetVal = ak, Val = {a0.BackgroundColor3, aj}}
+                RoundThingy(2, a0)
                 spawn(
                     function()
-                        h.RenderStepped:Connect(
-                            function()
-                                if aj then
-                                    al(RainbowCum)
-                                end
+                        while wait(.1) do
+                            if aj then
+                                al(RainbowCum)
                             end
-                        )
+                        end
                     end
                 )
-                ab.Move:Connect(
+                Mouse.Move:Connect(
                     function()
                         if g:IsMouseButtonPressed(0) and k.Visible then
                             al(at())
@@ -733,9 +724,10 @@ function Library:Window(a,b)
                     local l = Instance.new("ScrollingFrame")
                     local aC = Instance.new("UIListLayout")
                     local T = funclol
+                    RoundThingy(2, l)
                     aB.Name = "Dropdown"
                     aB.Parent = P
-                    aB.BackgroundColor3 = Color3.new(1, 1, 1)
+                    aB.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
                     aB.BackgroundTransparency = 1
                     aB.Position = UDim2.new(0, 0, 2.39047599, 0)
                     aB.Size = UDim2.new(0, 178, 0, 39)
@@ -743,7 +735,7 @@ function Library:Window(a,b)
                     aB.Font = Enum.Font.RobotoMono
                     aB.Text = pressf
                     aB.TextColor3 = Color3.new(0.301961, 0.301961, 0.301961)
-                    aB.TextSize = 14
+                    aB.TextSize = 14.5
                     aB.TextStrokeTransparency = 0.40000000596046
                     aB.TextXAlignment = Enum.TextXAlignment.Left
                     aB.TextYAlignment = Enum.TextYAlignment.Top
@@ -756,8 +748,9 @@ function Library:Window(a,b)
                     U.AutoButtonColor = false
                     U.Font = Enum.Font.RobotoMono
                     U.Text = " " .. tbllol[1]
-                    U.TextColor3 = Color3.new(1, 1, 1)
-                    U.TextSize = 14
+                    RoundThingy(2, U)
+                    U.TextColor3 = Color3.fromRGB(200, 200, 200)
+                    U.TextSize = 14.5
                     U.TextStrokeTransparency = 0.40000000596046
                     U.TextXAlignment = Enum.TextXAlignment.Left
                     l.Parent = U
@@ -799,8 +792,8 @@ function Library:Window(a,b)
                         U.AutoButtonColor = false
                         U.Font = Enum.Font.RobotoMono
                         U.Text = " " .. a
-                        U.TextColor3 = Color3.new(1, 1, 1)
-                        U.TextSize = 14
+                        U.TextColor3 = Color3.fromRGB(200, 200, 200)
+                        U.TextSize = 14.5
                         U.TextStrokeTransparency = 0.40000000596046
                         U.TextXAlignment = Enum.TextXAlignment.Left
                         local function aL()
@@ -814,7 +807,7 @@ function Library:Window(a,b)
                                     a0.Visible = true
                                 end
                             end
-                            getgenv().ArsoniaSettings[pressf] = {SetVal = funnn2, Val = {Y}}
+                            ArsoniaSettings[pressf] = {SetVal = funnn2, Val = {Y}}
                         end
                         aJ[a] = aL
                         U.MouseButton1Click:Connect(aL)
@@ -843,7 +836,7 @@ function Library:Window(a,b)
                             T.Visible = false
                         end
                     end
-                    getgenv().ArsoniaSettings[pressf] = {SetVal = funnn2, Val = {Y}}
+                    ArsoniaSettings[pressf] = {SetVal = funnn2, Val = {Y}}
                 else
                     local aB = Instance.new("TextLabel")
                     local U = Instance.new("TextButton")
@@ -852,7 +845,7 @@ function Library:Window(a,b)
                     local T = funclol
                     aB.Name = "Dropdown"
                     aB.Parent = P
-                    aB.BackgroundColor3 = Color3.new(1, 1, 1)
+                    aB.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
                     aB.BackgroundTransparency = 1
                     aB.Position = UDim2.new(0, 0, 2.39047599, 0)
                     aB.Size = UDim2.new(0, 178, 0, 39)
@@ -860,12 +853,13 @@ function Library:Window(a,b)
                     aB.Font = Enum.Font.RobotoMono
                     aB.Text = pressf
                     aB.TextColor3 = Color3.new(0.301961, 0.301961, 0.301961)
-                    aB.TextSize = 14
+                    aB.TextSize = 14.5
                     aB.TextStrokeTransparency = 0.40000000596046
                     aB.TextXAlignment = Enum.TextXAlignment.Left
                     aB.TextYAlignment = Enum.TextYAlignment.Top
                     U.Name = "Button"
                     U.Parent = aB
+                    RoundThingy(2, l)
                     U.BackgroundColor3 = Color3.new(0.192157, 0.192157, 0.192157)
                     U.BorderColor3 = Color3.new(0, 0, 0)
                     U.Position = UDim2.new(-0.0140000004, 0, 0.48, 0)
@@ -873,8 +867,9 @@ function Library:Window(a,b)
                     U.AutoButtonColor = false
                     U.Font = Enum.Font.RobotoMono
                     U.Text = " " .. tbllol[1]
-                    U.TextColor3 = Color3.new(1, 1, 1)
-                    U.TextSize = 14
+                    RoundThingy(2, U)
+                    U.TextColor3 = Color3.fromRGB(200, 200, 200)
+                    U.TextSize = 14.5
                     U.TextStrokeTransparency = 0.40000000596046
                     U.TextXAlignment = Enum.TextXAlignment.Left
                     l.Parent = U
@@ -915,8 +910,8 @@ function Library:Window(a,b)
                         U.AutoButtonColor = false
                         U.Font = Enum.Font.RobotoMono
                         U.Text = " " .. a
-                        U.TextColor3 = Color3.new(1, 1, 1)
-                        U.TextSize = 14
+                        U.TextColor3 = Color3.fromRGB(200, 200, 200)
+                        U.TextSize = 14.5
                         U.TextStrokeTransparency = 0.40000000596046
                         U.TextXAlignment = Enum.TextXAlignment.Left
                         local function aL()
@@ -930,7 +925,7 @@ function Library:Window(a,b)
                                     a0.Visible = true
                                 end
                             end
-                            getgenv().ArsoniaSettings[pressf] = {SetVal = funnn2, Val = {Y}}
+                            ArsoniaSettings[pressf] = {SetVal = funnn2, Val = {Y}}
                         end
                         aJ[a] = aL
                         U.MouseButton1Click:Connect(aL)
@@ -958,7 +953,7 @@ function Library:Window(a,b)
                             T.Visible = false
                         end
                     end
-                    getgenv().ArsoniaSettings[pressf] = {SetVal = funnn2, Val = {Y}}
+                    ArsoniaSettings[pressf] = {SetVal = funnn2, Val = {Y}}
                 end
             end
             function S:Keybind(a, aO, T)
@@ -969,19 +964,19 @@ function Library:Window(a,b)
                 local aS = false
                 aP.Name = "Keybind"
                 aP.Parent = P
-                aP.BackgroundColor3 = Color3.new(1, 1, 1)
+                aP.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
                 aP.BackgroundTransparency = 1
                 aP.Position = UDim2.new(0, 0, 1.98395073, 0)
                 aP.Size = UDim2.new(0, 102, 0, 12)
                 aP.Font = Enum.Font.RobotoMono
                 aP.Text = a
                 aP.TextColor3 = Color3.new(0.301961, 0.301961, 0.301961)
-                aP.TextSize = 14
+                aP.TextSize = 14.5
                 aP.TextStrokeTransparency = 0.4
                 aP.TextXAlignment = Enum.TextXAlignment.Left
                 U.Name = "Button"
                 U.Parent = aP
-                U.BackgroundColor3 = Color3.new(0.167, 0.167, 0.167)
+                U.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
                 U.BackgroundTransparency = 1
                 U.BorderColor3 = Color3.new(0, 0, 0)
                 U.Position = UDim2.new(1.35386384, 0, -0.298538178, 0)
@@ -989,8 +984,8 @@ function Library:Window(a,b)
                 U.AutoButtonColor = false
                 U.Font = Enum.Font.RobotoMono
                 U.Text = "None"
-                U.TextColor3 = Color3.new(1, 1, 1)
-                U.TextSize = 14
+                U.TextColor3 = Color3.fromRGB(200, 200, 200)
+                U.TextSize = 14.5
                 U.TextStrokeTransparency = 0.4
                 U.TextXAlignment = Enum.TextXAlignment.Right
                 local fucku = function(aV)
@@ -999,10 +994,10 @@ function Library:Window(a,b)
                         U.Text = KeyCodeName
                         aQ = aV
                         aS = false
-                        getgenv().ArsoniaSettings[a] = {SetVal = fucku, Val = {KeyCodeName}}
+                        ArsoniaSettings[a] = {SetVal = fucku, Val = {KeyCodeName}}
                     end)
                 end
-                getgenv().ArsoniaSettings[a] = {SetVal = fucku, Val = {KeyCodeName}}
+                ArsoniaSettings[a] = {SetVal = fucku, Val = {KeyCodeName}}
                 U.MouseButton1Click:Connect(
                     function()
                         pcall(function()
@@ -1024,7 +1019,7 @@ function Library:Window(a,b)
                                 U.Text = KeyCodeName
                                 aS = false
                                 aQ = aW
-                                getgenv().ArsoniaSettings[a] = {SetVal = fucku, Val = {KeyCodeName}}
+                                ArsoniaSettings[a] = {SetVal = fucku, Val = {KeyCodeName}}
                             end
                         end)
                     end
@@ -1061,30 +1056,31 @@ function Library:Window(a,b)
             function S:Slider(a, aX, aY, aO, T)
                 aO = aO - aX
                 local aZ = Instance.new("TextLabel")
-                local W = Instance.new("TextButton")
                 local a_ = Instance.new("TextButton")
                 local a0 = Instance.new("TextButton")
                 local b0 = Instance.new("TextBox")
                 local b1 = false
                 local b2
+                RoundThingy(2, a0)
+                RoundThingy(2, a_)
                 aY = aY - aX
                 aZ.Name = "Slider"
                 aZ.Parent = P
-                aZ.BackgroundColor3 = Color3.new(1, 1, 1)
+                aZ.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
                 aZ.BackgroundTransparency = 1
                 aZ.Position = UDim2.new(0, 0, 1.86666656, 0)
                 aZ.Size = UDim2.new(0, 178, 0, 39)
                 aZ.Font = Enum.Font.RobotoMono
                 aZ.Text = a
                 aZ.TextColor3 = Color3.new(0.301961, 0.301961, 0.301961)
-                aZ.TextSize = 14
+                aZ.TextSize = 14.5
                 aZ.TextStrokeTransparency = 0.4
                 aZ.TextXAlignment = Enum.TextXAlignment.Left
                 aZ.TextYAlignment = Enum.TextYAlignment.Top
                 a_.Name = "Slider"
                 a_.Parent = aZ
                 a_.Active = false
-                a_.BackgroundColor3 = Color3.new(0.167, 0.167, 0.167)
+                a_.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
                 a_.BorderColor3 = Color3.new(0, 0, 0)
                 a_.ClipsDescendants = true
                 a_.Position = UDim2.new(0, 0, 0.532051325, 0)
@@ -1092,30 +1088,30 @@ function Library:Window(a,b)
                 a_.AutoButtonColor = false
                 a_.Font = Enum.Font.RobotoMono
                 a_.Text = ""
-                a_.TextColor3 = Color3.new(1, 1, 1)
-                a_.TextSize = 14
+                a_.TextColor3 = Color3.fromRGB(200, 200, 200)
+                a_.TextSize = 14.5
                 a_.TextStrokeTransparency = 0.4
                 a0.Parent = a_
-                a0.BackgroundColor3 = getgenv().WindowThemeColor
+                a0.BackgroundColor3 = WindowThemeColor
                 a0.BorderSizePixel = 0
                 a0.Size = UDim2.new(0, 0, 1, 0)
                 a0.AutoButtonColor = false
                 a0.Font = Enum.Font.RobotoMono
                 a0.Text = ""
                 a0.TextColor3 = Color3.new(0, 0, 0)
-                a0.TextSize = 14
+                a0.TextSize = 14.5
                 a0.TextStrokeTransparency = 0.4
                 b0.Name = "Num"
                 b0.Parent = aZ
                 b0.Active = true
-                b0.BackgroundColor3 = Color3.new(1, 1, 1)
+                b0.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
                 b0.BackgroundTransparency = 1
                 b0.Position = UDim2.new(0, 110, 0, 0)
                 b0.Size = UDim2.new(0, 113, 0, 18)
                 b0.Font = Enum.Font.RobotoMono
                 b0.Text = tostring(aX)
-                b0.TextColor3 = Color3.new(1, 1, 1)
-                b0.TextSize = 14
+                b0.TextColor3 = Color3.fromRGB(200, 200, 200)
+                b0.TextSize = 14.5
                 b0.TextStrokeTransparency = 0.4
                 b0.TextXAlignment = 1
                 local function b3(D)
@@ -1136,7 +1132,7 @@ function Library:Window(a,b)
                         b0.Text = b6
                     end
                     T(tonumber(b0.Text))
-                    getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {tonumber(b0.Text)}}
+                    ArsoniaSettings[a] = {SetVal = b3, Val = {tonumber(b0.Text)}}
                 end
                 b0.FocusLost:Connect(
                     function()
@@ -1158,7 +1154,7 @@ function Library:Window(a,b)
                                 b0.Text = b6
                             end
                             T(tonumber(b0.Text))
-                            getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {tonumber(b0.Text)}}
+                            ArsoniaSettings[a] = {SetVal = b3, Val = {tonumber(b0.Text)}}
                         else
                             local b4 = a0.Position
                             local b5 = (tonumber(b0.Text) - aX) * 100 / aY / 100
@@ -1177,7 +1173,7 @@ function Library:Window(a,b)
                                 b0.Text = b6
                             end
                             T(tonumber(b0.Text))
-                            getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {tonumber(b0.Text)}}
+                            ArsoniaSettings[a] = {SetVal = b3, Val = {tonumber(b0.Text)}}
                         end
                     end
                 )
@@ -1193,13 +1189,9 @@ function Library:Window(a,b)
                         b1 = false
                     end
                 )
-                a_.MouseEnter:Connect(
+                a_.MouseButton1Down:Connect(
                     function()
-                        a_.MouseButton1Down:Connect(
-                            function()
-                                b1 = true
-                            end
-                        )
+                        b1 = true
                     end
                 )
                 a0.MouseButton1Up:Connect(
@@ -1207,13 +1199,9 @@ function Library:Window(a,b)
                         b1 = false
                     end
                 )
-                a0.MouseEnter:Connect(
+                a0.MouseButton1Down:Connect(
                     function()
-                        a0.MouseButton1Down:Connect(
-                            function()
-                                b1 = true
-                            end
-                        )
+                        b1 = true
                     end
                 )
                 g.InputEnded:Connect(
@@ -1223,33 +1211,34 @@ function Library:Window(a,b)
                         end
                     end
                 )
-                h.RenderStepped:Connect(
+                spawn(
                     function()
-                        a0.BackgroundColor3 = getgenv().WindowThemeColor
-                        if b1 then
-                            local b9 = g:GetMouseLocation().X
-                            local b4 = a0.Position
-                            local ba = a_.AbsoluteSize.X
-                            local bb = a_.AbsolutePosition.X
-                            local b5 = (b9 - bb) / ba
-                            percentage = math.clamp(b5, 0, 1)
-                            a0:TweenSizeAndPosition(
-                                UDim2.new(percentage, 0, 1, 0),
-                                UDim2.new(percentage / 100, -2, b4.Y.Scale, b4.Y.Offset),
-                                nil,
-                                nil,
-                                0.08
-                            )
-                            local b6 = math.floor(math.floor(aY * percentage * aY) / aY) + aX
-                            if aX == b6 then
-                                b0.Text = aX
-                            else
-                                b0.Text = b6
-                            end
-                            if b2 ~= tonumber(b0.Text) then
-                                b2 = tonumber(b0.Text)
-                                T(tonumber(b0.Text))
-                                getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {tonumber(b0.Text)}}
+                        while wait() do
+                            a0.BackgroundColor3 = WindowThemeColor
+                            if b1 then
+                                local b4 = a0.Position
+                                local ba = a_.AbsoluteSize.X
+                                local bb = a_.AbsolutePosition.X
+                                local b5 = (g:GetMouseLocation().X - bb) / ba
+                                percentage = math.clamp(b5, 0, 1)
+                                a0:TweenSizeAndPosition(
+                                    UDim2.new(percentage, 0, 1, 0),
+                                    UDim2.new(percentage / 100, -2, b4.Y.Scale, b4.Y.Offset),
+                                    nil,
+                                    nil,
+                                    0.08
+                                )
+                                local b6 = math.floor(math.floor(aY * percentage * aY) / aY) + aX
+                                if aX == b6 then
+                                    b0.Text = aX
+                                else
+                                    b0.Text = b6
+                                end
+                                if b2 ~= tonumber(b0.Text) then
+                                    b2 = tonumber(b0.Text)
+                                    T(tonumber(b0.Text))
+                                    ArsoniaSettings[a] = {SetVal = b3, Val = {tonumber(b0.Text)}}
+                                end
                             end
                         end
                     end
@@ -1273,7 +1262,7 @@ function Library:Window(a,b)
                     end
                     T(tonumber(b0.Text))
                 end
-                getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {tonumber(b0.Text)}}
+                ArsoniaSettings[a] = {SetVal = b3, Val = {tonumber(b0.Text)}}
             end
             function S:ToggleSlider(a, aX, aY, aO, T)
                 aO = tonumber(aO - aX) or aX
@@ -1284,37 +1273,40 @@ function Library:Window(a,b)
                 local b0 = Instance.new("TextBox")
                 local b1 = false
                 local b2
+                RoundThingy(2, a0)
+                RoundThingy(2, W)
+                RoundThingy(2, a_)
                 aY = aY - aX
                 local bc = false
                 aZ.Name = "Slider"
                 aZ.Parent = P
-                aZ.BackgroundColor3 = Color3.new(1, 1, 1)
+                aZ.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
                 aZ.BackgroundTransparency = 1
                 aZ.Position = UDim2.new(0, 0, 1.86666656, 0)
                 aZ.Size = UDim2.new(0, 178, 0, 39)
                 aZ.Font = Enum.Font.RobotoMono
                 aZ.Text = a
                 aZ.TextColor3 = Color3.new(0.301961, 0.301961, 0.301961)
-                aZ.TextSize = 14
+                aZ.TextSize = 14.5
                 aZ.TextStrokeTransparency = 0.4
                 aZ.TextXAlignment = Enum.TextXAlignment.Left
                 aZ.TextYAlignment = Enum.TextYAlignment.Top
                 W.Name = "Toggle"
                 W.Parent = aZ
-                W.BackgroundColor3 = Color3.new(0.167, 0.167, 0.167)
+                W.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
                 W.BorderColor3 = Color3.new(0, 0, 0)
                 W.Position = UDim2.new(1.1768539, 0, -0.0112500004, 0)
                 W.Size = UDim2.new(0, 13, 0, 13)
                 W.AutoButtonColor = false
                 W.Font = Enum.Font.RobotoMono
                 W.Text = ""
-                W.TextColor3 = Color3.new(1, 1, 1)
-                W.TextSize = 14
+                W.TextColor3 = Color3.fromRGB(200, 200, 200)
+                W.TextSize = 14.5
                 W.TextStrokeTransparency = 0.4
                 a_.Name = "Slider"
                 a_.Parent = aZ
                 a_.Active = false
-                a_.BackgroundColor3 = Color3.new(0.167, 0.167, 0.167)
+                a_.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
                 a_.BorderColor3 = Color3.new(0, 0, 0)
                 a_.ClipsDescendants = true
                 a_.Position = UDim2.new(0, 0, 0.532051325, 0)
@@ -1322,30 +1314,30 @@ function Library:Window(a,b)
                 a_.AutoButtonColor = false
                 a_.Font = Enum.Font.RobotoMono
                 a_.Text = ""
-                a_.TextColor3 = Color3.new(1, 1, 1)
-                a_.TextSize = 14
+                a_.TextColor3 = Color3.fromRGB(200, 200, 200)
+                a_.TextSize = 14.5
                 a_.TextStrokeTransparency = 0.4
                 a0.Parent = a_
-                a0.BackgroundColor3 = getgenv().WindowThemeColor
+                a0.BackgroundColor3 = WindowThemeColor
                 a0.BorderSizePixel = 0
                 a0.Size = UDim2.new(0, 0, 1, 0)
                 a0.AutoButtonColor = false
                 a0.Font = Enum.Font.RobotoMono
                 a0.Text = ""
                 a0.TextColor3 = Color3.new(0, 0, 0)
-                a0.TextSize = 14
+                a0.TextSize = 14.5
                 a0.TextStrokeTransparency = 0.4
                 b0.Name = "Num"
                 b0.Parent = aZ
                 b0.Active = true
-                b0.BackgroundColor3 = Color3.new(1, 1, 1)
+                b0.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
                 b0.BackgroundTransparency = 1
                 b0.Position = UDim2.new(0, 110, 0, 0)
                 b0.Size = UDim2.new(0, 95, 0, 13)
                 b0.Font = Enum.Font.RobotoMono
                 b0.Text = tostring(aX)
-                b0.TextColor3 = Color3.new(1, 1, 1)
-                b0.TextSize = 14
+                b0.TextColor3 = Color3.fromRGB(200, 200, 200)
+                b0.TextSize = 14.5
                 b0.TextStrokeTransparency = 0.4
                 b0.TextXAlignment = 1
                 local function b3(D, E)
@@ -1366,13 +1358,13 @@ function Library:Window(a,b)
                         b0.Text = b6
                     end
                     if not D then
-                        y(W, {BackgroundColor3 = Color3.fromRGB(45, 45, 45)})
+                        y(W, {BackgroundColor3 = Color3.fromRGB(35, 35, 35)})
                     else
-                        y(W, {BackgroundColor3 = getgenv().WindowThemeColor})
+                        y(W, {BackgroundColor3 = WindowThemeColor})
                     end
                     bc = D
                     T(bc, tonumber(b0.Text))
-                    getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
+                    ArsoniaSettings[a] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
                 end
                 b0.FocusLost:Connect(
                     function()
@@ -1394,7 +1386,7 @@ function Library:Window(a,b)
                                 b0.Text = b6
                             end
                             T(bc, tonumber(b0.Text))
-                            getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
+                            ArsoniaSettings[a] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
                         else
                             local b4 = a0.Position
                             local b5 = (tonumber(b0.Text) - aX) * 100 / aY / 100
@@ -1413,7 +1405,7 @@ function Library:Window(a,b)
                                 b0.Text = b6
                             end
                             T(bc, tonumber(b0.Text))
-                            getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
+                            ArsoniaSettings[a] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
                         end
                     end
                 )
@@ -1427,13 +1419,13 @@ function Library:Window(a,b)
                 W.MouseButton1Click:Connect(
                     function()
                         if bc then
-                            y(W, {BackgroundColor3 = Color3.fromRGB(45, 45, 45)})
+                            y(W, {BackgroundColor3 = Color3.fromRGB(35, 35, 35)})
                         else
-                            y(W, {BackgroundColor3 = getgenv().WindowThemeColor})
+                            y(W, {BackgroundColor3 = WindowThemeColor})
                         end
                         bc = not bc
                         T(bc, tonumber(b0.Text))
-                        getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
+                        ArsoniaSettings[a] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
                     end
                 )
                 function snap(b7, b8)
@@ -1448,13 +1440,9 @@ function Library:Window(a,b)
                         b1 = false
                     end
                 )
-                a_.MouseEnter:Connect(
+                a_.MouseButton1Down:Connect(
                     function()
-                        a_.MouseButton1Down:Connect(
-                            function()
-                                b1 = true
-                            end
-                        )
+                        b1 = true
                     end
                 )
                 a0.MouseButton1Up:Connect(
@@ -1462,45 +1450,42 @@ function Library:Window(a,b)
                         b1 = false
                     end
                 )
-                a0.MouseEnter:Connect(
+                a0.MouseButton1Down:Connect(
                     function()
-                        a0.MouseButton1Down:Connect(
-                            function()
-                                b1 = true
-                            end
-                        )
+                        b1 = true
                     end
                 )
-                h.RenderStepped:Connect(
+                spawn(
                     function()
-                        a0.BackgroundColor3 = getgenv().WindowThemeColor
-                        if bc then
-                            W.BackgroundColor3 = getgenv().WindowThemeColor
-                        end
-                        if b1 then
-                            local b9 = g:GetMouseLocation().X
-                            local b4 = a0.Position
-                            local ba = a_.AbsoluteSize.X
-                            local bb = a_.AbsolutePosition.X
-                            local b5 = (b9 - bb) / ba
-                            percentage = math.clamp(b5, 0, 1)
-                            a0:TweenSizeAndPosition(
-                                UDim2.new(percentage, 0, 1, 0),
-                                UDim2.new(percentage / 100, -2, b4.Y.Scale, b4.Y.Offset),
-                                nil,
-                                nil,
-                                0.08
-                            )
-                            local b6 = math.floor(math.floor(aY * percentage * aY) / aY) + aX
-                            if aX == b6 then
-                                b0.Text = aX
-                            else
-                                b0.Text = b6
+                        while wait() do
+                            a0.BackgroundColor3 = WindowThemeColor
+                            if bc then
+                                W.BackgroundColor3 = WindowThemeColor
                             end
-                            if b2 ~= tonumber(b0.Text) then
-                                b2 = tonumber(b0.Text)
-                                T(bc, tonumber(b0.Text))
-                                getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
+                            if b1 then
+                                local b4 = a0.Position
+                                local ba = a_.AbsoluteSize.X
+                                local bb = a_.AbsolutePosition.X
+                                local b5 = (g:GetMouseLocation().X - bb) / ba
+                                percentage = math.clamp(b5, 0, 1)
+                                a0:TweenSizeAndPosition(
+                                    UDim2.new(percentage, 0, 1, 0),
+                                    UDim2.new(percentage / 100, -2, b4.Y.Scale, b4.Y.Offset),
+                                    nil,
+                                    nil,
+                                    0.08
+                                )
+                                local b6 = math.floor(math.floor(aY * percentage * aY) / aY) + aX
+                                if aX == b6 then
+                                    b0.Text = aX
+                                else
+                                    b0.Text = b6
+                                end
+                                if b2 ~= tonumber(b0.Text) then
+                                    b2 = tonumber(b0.Text)
+                                    T(bc, tonumber(b0.Text))
+                                    ArsoniaSettings[a] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
+                                end
                             end
                         end
                     end
@@ -1524,7 +1509,7 @@ function Library:Window(a,b)
                     end
                     T(bc, tonumber(b0.Text))
                 end
-                getgenv().ArsoniaSettings[a] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
+                ArsoniaSettings[a] = {SetVal = b3, Val = {bc, tonumber(b0.Text)}}
             end
             function S:Textbox(a, aO, T)
                 local bd = Instance.new("TextLabel")
@@ -1532,19 +1517,19 @@ function Library:Window(a,b)
                 local l = Instance.new("Frame")
                 bd.Name = "Text box"
                 bd.Parent = P
-                bd.BackgroundColor3 = Color3.new(1, 1, 1)
+                bd.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
                 bd.BackgroundTransparency = 1
                 bd.Position = UDim2.new(0.190909088, 0, 2.13571429, 0)
                 bd.Size = UDim2.new(0, 178, 0, 36)
                 bd.Font = Enum.Font.RobotoMono
                 bd.Text = a
                 bd.TextColor3 = Color3.new(0.301961, 0.301961, 0.301961)
-                bd.TextSize = 14
+                bd.TextSize = 14.5
                 bd.TextStrokeTransparency = 0.4
                 bd.TextXAlignment = Enum.TextXAlignment.Left
                 bd.TextYAlignment = Enum.TextYAlignment.Top
                 be.Parent = bd
-                be.BackgroundColor3 = Color3.new(1, 1, 1)
+                be.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
                 be.BackgroundTransparency = 1
                 be.BorderColor3 = Color3.new(0, 0, 0)
                 be.Position = UDim2.new(0, 0, 0.45999992, 0)
@@ -1552,15 +1537,15 @@ function Library:Window(a,b)
                 be.ClearTextOnFocus = false
                 be.Font = Enum.Font.SourceSans
                 be.PlaceholderColor3 = Color3.new(0.764706, 0.764706, 0.764706)
-                be.PlaceholderText = "Type something here!"
+                be.PlaceholderText = ""
                 be.Text = aO
-                be.TextColor3 = Color3.new(1, 1, 1)
-                be.TextSize = 14
+                be.TextColor3 = Color3.fromRGB(200, 200, 200)
+                be.TextSize = 14.5
                 be.TextStrokeTransparency = 0.4
                 be.TextXAlignment = Enum.TextXAlignment.Left
                 l.Name = "fuck_this_shit_bro"
                 l.Parent = be
-                l.BackgroundColor3 = getgenv().WindowThemeColor
+                l.BackgroundColor3 = WindowThemeColor
                 l.BorderSizePixel = 0
                 l.Position = UDim2.new(0, 0, 1, 0)
                 l.Size = UDim2.new(0, 1, 0, 0)
@@ -1587,19 +1572,19 @@ function Library:Window(a,b)
                 local l = Instance.new("Frame")
                 bd.Name = "Text box"
                 bd.Parent = P
-                bd.BackgroundColor3 = Color3.new(1, 1, 1)
+                bd.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
                 bd.BackgroundTransparency = 1
                 bd.Position = UDim2.new(0.190909088, 0, 2.13571429, 0)
                 bd.Size = UDim2.new(0, 178, 0, 17)
                 bd.Font = Enum.Font.Code
                 bd.Text = a
-                bd.TextColor3 = Color3.new(1, 1, 1)
-                bd.TextSize = 14
+                bd.TextColor3 = Color3.fromRGB(200, 200, 200)
+                bd.TextSize = 14.5
                 bd.TextStrokeTransparency = 0.4
                 bd.TextXAlignment = Enum.TextXAlignment.Left
                 bd.TextYAlignment = Enum.TextYAlignment.Top
                 l.Parent = be
-                l.BackgroundColor3 = getgenv().WindowThemeColor
+                l.BackgroundColor3 = WindowThemeColor
                 l.BorderSizePixel = 0
                 l.Position = UDim2.new(0, 0, 1, 0)
                 l.Size = UDim2.new(0, 1, 0, 0)
