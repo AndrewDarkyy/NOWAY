@@ -159,12 +159,18 @@ function Library:Window(a,b)
                     end
                 end
                 ZIndexNum = 0
+                ZIndexMax = 0
                 for _, C in next, DESCS_LOL do
                     if C.Name == "fuck_this_shit_bro" then
                         C.BackgroundColor3 = WindowThemeColor
                     end
                     if C.Name == "Section" or C.Name == "Dropdown" or C.Name == "Color" then
-                        C.ZIndex = 24 - ZIndexNum
+                        ZIndexMax = ZIndexMax + 1
+                    end
+                end
+                for _, C in next, DESCS_LOL do
+                    if C.Name == "Section" or C.Name == "Dropdown" or C.Name == "Color" then
+                        C.ZIndex = 2 + ZIndexMax - ZIndexNum
                         ZIndexNum = ZIndexNum + 1
                     end
                 end
