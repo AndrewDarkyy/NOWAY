@@ -86,7 +86,6 @@ function Library:Window(a,b)
     o.Font = Enum.Font.RobotoMono
     o.Text = a
     o.TextSize = 14.5
-    o.TextColor3 = o.TextColor3
     o.TextStrokeTransparency = 0.4
     o.TextXAlignment = Enum.TextXAlignment.Left
     local x = Instance.new("Frame")
@@ -127,13 +126,21 @@ function Library:Window(a,b)
     local function y(z, A)
         return game:GetService("TweenService"):Create(z, TweenInfo.new(0.5, Enum.EasingStyle.Quint), A):Play()
     end
-    local DESCS_LOL = {}
     spawn(function()
-        while wait(0.5) do
-            DESCS_LOL = p:GetDescendants()
+        wait()
+        framePosLeft = 1
+        framePosRight = 1
+        for _, B in next, p:GetChildren() do
+            B.Position = UDim2.new(-0.00377, 0, 0, framePosLeft - 2)
+            framePosLeft = framePosLeft + B.Size.Y.Offset + 5
+            if p.Size.Y.Offset - framePosLeft + 7 < 0 then
+                B.Position = UDim2.new(0.507, 0, 0, -1)
+            end
+            if B.Position.X.Scale >= 0.507 then
+                B.Position = UDim2.new(0.507, 0, 0, framePosRight - 2)
+                framePosRight = framePosRight + B.Size.Y.Offset + 5
+            end
         end
-    end)
-    spawn(function()
         while wait() do
             for az = 0, 1, 0.0025 do
                 wait()
@@ -141,42 +148,6 @@ function Library:Window(a,b)
             end
         end
     end)
-    spawn(
-        function()
-            while wait() do
-                o.TextColor3 = TitleColor
-                framePosLeft = 1
-                framePosRight = 1
-                for _, B in next, p:GetChildren() do
-                    B.Position = UDim2.new(-0.00377, 0, 0, framePosLeft - 2)
-                    framePosLeft = framePosLeft + B.Size.Y.Offset + 5
-                    if p.Size.Y.Offset - framePosLeft + 7 < 0 then
-                        B.Position = UDim2.new(0.507, 0, 0, -1)
-                    end
-                    if B.Position.X.Scale >= 0.507 then
-                        B.Position = UDim2.new(0.507, 0, 0, framePosRight - 2)
-                        framePosRight = framePosRight + B.Size.Y.Offset + 5
-                    end
-                end
-                ZIndexNum = 0
-                ZIndexMax = 0
-                for _, C in next, DESCS_LOL do
-                    if C.Name == "fuck_this_shit_bro" then
-                        C.BackgroundColor3 = WindowThemeColor
-                    end
-                    if C.Name == "Section" or C.Name == "Dropdown" or C.Name == "Color" then
-                        ZIndexMax = ZIndexMax + 1
-                    end
-                end
-                for _, C in next, DESCS_LOL do
-                    if C.Name == "Section" or C.Name == "Dropdown" or C.Name == "Color" then
-                        C.ZIndex = 2 + ZIndexMax - ZIndexNum
-                        ZIndexNum = ZIndexNum + 1
-                    end
-                end
-            end
-        end
-    )
     local D = Instance.new("TextLabel")
     local E = Instance.new("TextLabel")
     E.Name = "Differ"
@@ -212,6 +183,7 @@ function Library:Window(a,b)
     E.Size = UDim2.new(0, 6, 0, 23)
     E.Font = Enum.Font.RobotoMono
     E.Text = ""
+    local ZIndexMax = 0
     E.TextColor3 = Color3.fromRGB(200, 200, 200)
     E.TextSize = 14.5
     E.TextStrokeTransparency = 0.4
@@ -244,8 +216,40 @@ function Library:Window(a,b)
                     end
                 end
             end
+            wait(0.2)
+            framePosLeft = 1
+            framePosRight = 1
+            for _, B in next, p:GetChildren() do
+                B.Position = UDim2.new(-0.00377, 0, 0, framePosLeft - 2)
+                framePosLeft = framePosLeft + B.Size.Y.Offset + 5
+                if p.Size.Y.Offset - framePosLeft + 7 < 0 then
+                    B.Position = UDim2.new(0.507, 0, 0, -1)
+                end
+                if B.Position.X.Scale >= 0.507 then
+                    B.Position = UDim2.new(0.507, 0, 0, framePosRight - 2)
+                    framePosRight = framePosRight + B.Size.Y.Offset + 5
+                end
+            end
         end
     )
+    spawn(function()
+        wait(0.5)
+        ZIndexNum = 0
+        for _, C in next, p:GetDescendants() do
+            if C.Name == "Section" or C.Name == "Dropdown" or C.Name == "Color" then
+                ZIndexMax = ZIndexMax + 1
+            end
+        end
+        for _, C in next, p:GetDescendants() do
+            if C.Name == "fuck_this_shit_bro" then
+                C.BackgroundColor3 = WindowThemeColor
+            end
+            if C.Name == "Section" or C.Name == "Dropdown" or C.Name == "Color" then
+                C.ZIndex = 2 + ZIndexMax - ZIndexNum
+                ZIndexNum = ZIndexNum + 1
+            end
+        end
+    end)
     local I = {}
     function I:Tab(a)
         local L = Instance.new("TextButton")
@@ -283,6 +287,29 @@ function Library:Window(a,b)
                     s = L
                     H.Visible = true
                     H.Parent = p
+                end
+                framePosLeft = 1
+                framePosRight = 1
+                for _, B in next, p:GetChildren() do
+                    B.Position = UDim2.new(-0.00377, 0, 0, framePosLeft - 2)
+                    framePosLeft = framePosLeft + B.Size.Y.Offset + 5
+                    if p.Size.Y.Offset - framePosLeft + 7 < 0 then
+                        B.Position = UDim2.new(0.507, 0, 0, -1)
+                    end
+                    if B.Position.X.Scale >= 0.507 then
+                        B.Position = UDim2.new(0.507, 0, 0, framePosRight - 2)
+                        framePosRight = framePosRight + B.Size.Y.Offset + 5
+                    end
+                end
+                ZIndexNum = 0
+                for _, C in next, p:GetDescendants() do
+                    if C.Name == "fuck_this_shit_bro" then
+                        C.BackgroundColor3 = WindowThemeColor
+                    end
+                    if C.Name == "Section" or C.Name == "Dropdown" or C.Name == "Color" then
+                        C.ZIndex = 2 + ZIndexMax - ZIndexNum
+                        ZIndexNum = ZIndexNum + 1
+                    end
                 end
             end
         )
