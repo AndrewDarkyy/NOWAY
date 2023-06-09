@@ -705,7 +705,7 @@ function EspInterface.getWeapon(player)
 end
 
 function EspInterface.isFriendly(player)
-	if v.Team == game.Players.LocalPlayer.Team then
+	if player.Team == game.Players.LocalPlayer.Team then
 		if game.ReplicatedStorage.wkspc.FFA.Value then
 			return false
 		else
