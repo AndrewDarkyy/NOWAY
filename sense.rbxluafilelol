@@ -704,7 +704,7 @@ end
 
 if game.PlaceId == 3527629287 or game.PlaceId == 4505939773 then
     function EspInterface.isFriendly(player)
-        if player.PlayerGui.Top.RoundType.TextLabel.Text == "FFA" then
+        if game.Players.LocalPlayer.PlayerGui.Top.RoundType.TextLabel.Text == "FFA" then
             return false
         end
         return player.Team and player.Team == localPlayer.Team
