@@ -7,8 +7,6 @@ local workspace = game:GetService("Workspace");
 local localPlayer = players.LocalPlayer;
 local camera = workspace.CurrentCamera;
 local viewportSize = camera.ViewportSize;
-local container = Instance.new("Folder",
-	gethui and gethui() or game:GetService("CoreGui"));
 
 -- locals
 local floor = math.floor;
@@ -24,7 +22,6 @@ local fromMatrix = CFrame.fromMatrix;
 -- methods
 local wtvp = camera.WorldToViewportPoint;
 local isA = workspace.IsA;
-local getPivot = workspace.GetPivot;
 local findFirstChild = workspace.FindFirstChild;
 local findFirstChildOfClass = workspace.FindFirstChildOfClass;
 local getChildren = workspace.GetChildren;
@@ -196,12 +193,11 @@ end
 function EspObject:Update()
 	local interface = self.interface;
 
-	self.options = interface.teamSettings[interface.isFriendly(self.player) and "friendly" or "enemy"];
+	self.options = interface.teamSettings[isFriendly(self.player) and "friendly" or "enemy"];
 	self.character = interface.getCharacter(self.player);
 	self.health, self.maxHealth = interface.getHealth(self.player);
 	self.weapon = interface.getWeapon(self.player);
-	self.enabled = self.options.enabled and self.character and not
-		(#interface.whitelist > 0 and not find(interface.whitelist, self.player.UserId));
+	self.enabled = self.options.enabled and self.character
 
 	local head = self.enabled and findFirstChild(self.character, "Head");
 	if not head then
@@ -415,128 +411,10 @@ function EspObject:Render()
 	end
 end
 
--- cham object
-local ChamObject = {};
-ChamObject.__index = ChamObject;
-
-function ChamObject.new(player, interface)
-	local self = setmetatable({}, ChamObject);
-	self.player = assert(player, "Missing argument #1 (Player expected)");
-	self.interface = assert(interface, "Missing argument #2 (table expected)");
-	self:Construct();
-	return self;
-end
-
-function ChamObject:Construct()
-	self.highlight = Instance.new("Highlight", container);
-	self.updateConnection = runService.Heartbeat:Connect(function()
-		self:Update();
-	end);
-end
-
-function ChamObject:Destruct()
-	self.updateConnection:Disconnect();
-	self.highlight:Destroy();
-
-	clear(self);
-end
-
-function ChamObject:Update()
-	local highlight = self.highlight;
-	local interface = self.interface;
-	local character = interface.getCharacter(self.player);
-	local options = interface.teamSettings[interface.isFriendly(self.player) and "friendly" or "enemy"];
-	local enabled = options.enabled and character and not
-		(#interface.whitelist > 0 and not find(interface.whitelist, self.player.UserId));
-
-	highlight.Enabled = enabled and options.chams;
-	if highlight.Enabled then
-		highlight.Adornee = character;
-		highlight.FillColor = parseColor(self, options.chamsFillColor[1]);
-		highlight.FillTransparency = options.chamsFillColor[2];
-		highlight.OutlineColor = parseColor(self, options.chamsOutlineColor[1], true);
-		highlight.OutlineTransparency = options.chamsOutlineColor[2];
-		highlight.DepthMode = options.chamsVisibleOnly and "Occluded" or "AlwaysOnTop";
-	end
-end
-
--- instance class
-local InstanceObject = {};
-InstanceObject.__index = InstanceObject;
-
-function InstanceObject.new(instance, options)
-	local self = setmetatable({}, InstanceObject);
-	self.instance = assert(instance, "Missing argument #1 (Instance Expected)");
-	self.options = assert(options, "Missing argument #2 (table expected)");
-	self:Construct();
-	return self;
-end
-
-function InstanceObject:Construct()
-	local options = self.options;
-	options.enabled = options.enabled == nil and true or options.enabled;
-	options.text = options.text or "{name}";
-	options.textColor = options.textColor or { Color3.new(1,1,1), 1 };
-	options.textOutline = options.textOutline == nil and true or options.textOutline;
-	options.textOutlineColor = options.textOutlineColor or Color3.new();
-	options.textSize = options.textSize or 13;
-	options.textFont = options.textFont or 2;
-	options.limitDistance = options.limitDistance or false;
-	options.maxDistance = options.maxDistance or 150;
-
-	self.text = Drawing.new("Text");
-	self.text.Center = true;
-
-	self.renderConnection = runService.Heartbeat:Connect(function(deltaTime)
-		self:Render(deltaTime);
-	end);
-end
-
-function InstanceObject:Destruct()
-	self.renderConnection:Disconnect();
-	self.text:Remove();
-end
-
-function InstanceObject:Render()
-	local instance = self.instance;
-	if not instance or not instance.Parent then
-		return self:Destruct();
-	end
-
-	local text = self.text;
-	local options = self.options;
-	if not options.enabled then
-		text.Visible = false;
-		return;
-	end
-
-	local world = getPivot(instance).Position;
-	local position, visible, depth = worldToScreen(world);
-	if options.limitDistance and depth > options.maxDistance then
-		visible = false;
-	end
-
-	text.Visible = visible;
-	if text.Visible then
-		text.Position = position;
-		text.Color = options.textColor[1];
-		text.Transparency = options.textColor[2];
-		text.Outline = options.textOutline;
-		text.OutlineColor = options.textOutlineColor;
-		text.Size = options.textSize;
-		text.Font = options.textFont;
-		text.Text = options.text
-			:gsub("{name}", instance.Name)
-			:gsub("{distance}", round(depth))
-			:gsub("{position}", tostring(world));
-	end
-end
-
 -- interface
 local EspInterface = {
 	_hasLoaded = false,
 	_objectCache = {},
-	whitelist = {},
 	sharedSettings = {
 		textSize = 13,
 		textFont = 2,
@@ -642,23 +520,12 @@ local EspInterface = {
 	}
 };
 
-function EspInterface.AddInstance(instance, options)
-	local cache = EspInterface._objectCache;
-	if cache[instance] then
-		warn("Instance handler already exists.");
-	else
-		cache[instance] = { InstanceObject.new(instance, options) };
-	end
-	return cache[instance][1];
-end
-
 function EspInterface.Load()
 	assert(not EspInterface._hasLoaded, "Esp has already been loaded.");
 
 	local function createObject(player)
 		EspInterface._objectCache[player] = {
-			EspObject.new(player, EspInterface),
-			ChamObject.new(player, EspInterface)
+			EspObject.new(player, EspInterface)
 		};
 	end
 
@@ -700,19 +567,6 @@ end
 -- game specific functions
 function EspInterface.getWeapon(player)
 	return "Unknown";
-end
-
-if game.PlaceId == 3527629287 or game.PlaceId == 4505939773 then
-    function EspInterface.isFriendly(player)
-        if game.Players.LocalPlayer.PlayerGui.Top.RoundType.TextLabel.Text == "FFA" then
-            return false
-        end
-        return player.Team and player.Team == localPlayer.Team
-    end
-else
-	function EspInterface.isFriendly(player)
-		return player.Team and player.Team == localPlayer.Team;
-	end
 end
 
 function EspInterface.getTeamColor(player)
