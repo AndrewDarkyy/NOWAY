@@ -9,13 +9,11 @@ local camera = workspace.CurrentCamera;
 local viewportSize = camera.ViewportSize;
 
 -- locals
-local floor = math.floor;
 local round = math.round;
 local sin = math.sin;
 local cos = math.cos;
 local clear = table.clear;
 local unpack = table.unpack;
-local find = table.find;
 local create = table.create;
 local fromMatrix = CFrame.fromMatrix;
 
@@ -23,7 +21,6 @@ local fromMatrix = CFrame.fromMatrix;
 local wtvp = camera.WorldToViewportPoint;
 local isA = workspace.IsA;
 local findFirstChild = workspace.FindFirstChild;
-local findFirstChildOfClass = workspace.FindFirstChildOfClass;
 local getChildren = workspace.GetChildren;
 local toOrientation = CFrame.identity.ToOrientation;
 local pointToObjectSpace = CFrame.identity.PointToObjectSpace;
@@ -86,25 +83,17 @@ local function calculateCorners(cframe, size)
 	local max = max2(Vector2.zero, unpack(corners));
 	return {
 		corners = corners,
-		topLeft = Vector2.new(floor(min.X), floor(min.Y)),
-		topRight = Vector2.new(floor(max.X), floor(min.Y)),
-		bottomLeft = Vector2.new(floor(min.X), floor(max.Y)),
-		bottomRight = Vector2.new(floor(max.X), floor(max.Y))
+		topLeft = Vector2.new(min.X, min.Y),
+		topRight = Vector2.new(max.X, min.Y),
+		bottomLeft = Vector2.new(min.X, max.Y),
+		bottomRight = Vector2.new(max.X, max.Y)
 	};
 end
 
 local function rotateVector(vector, radians)
-	-- https://stackoverflow.com/questions/28112315/how-do-i-rotate-a-vector
 	local x, y = vector.X, vector.Y;
 	local c, s = cos(radians), sin(radians);
 	return Vector2.new(x*c - y*s, x*s + y*c);
-end
-
-local function parseColor(self, color, isOutline)
-	if color == "Team Color" or (self.interface.sharedSettings.useTeamColor and not isOutline) then
-		return self.interface.getTeamColor(self.player) or Color3.new(1,1,1);
-	end
-	return color;
 end
 
 -- esp object
@@ -194,9 +183,9 @@ function EspObject:Update()
 	local interface = self.interface;
 
 	self.options = interface.teamSettings[isFriendly(self.player) and "friendly" or "enemy"];
-	self.character = interface.getCharacter(self.player);
-	self.health, self.maxHealth = interface.getHealth(self.player);
-	self.weapon = interface.getWeapon(self.player);
+	self.character = self.player.Character
+	self.health, self.maxHealth = 100, 100
+	self.weapon = ""
 	self.enabled = self.options.enabled and self.character
 
 	local head = self.enabled and findFirstChild(self.character, "Head");
@@ -255,13 +244,13 @@ function EspObject:Render()
 		local box = visible.box;
 		box.Position = corners.topLeft;
 		box.Size = corners.bottomRight - corners.topLeft;
-		box.Color = parseColor(self, options.boxColor[1]);
+		box.Color = options.boxColor[1]
 		box.Transparency = options.boxColor[2];
 
 		local boxOutline = visible.boxOutline;
 		boxOutline.Position = box.Position;
 		boxOutline.Size = box.Size;
-		boxOutline.Color = parseColor(self, options.boxOutlineColor[1], true);
+		boxOutline.Color = options.boxOutlineColor[1]
 		boxOutline.Transparency = options.boxOutlineColor[2];
 	end
 
@@ -270,7 +259,7 @@ function EspObject:Render()
 		local boxFill = visible.boxFill;
 		boxFill.Position = corners.topLeft;
 		boxFill.Size = corners.bottomRight - corners.topLeft;
-		boxFill.Color = parseColor(self, options.boxFillColor[1]);
+		boxFill.Color = options.boxFillColor[1]
 		boxFill.Transparency = options.boxFillColor[2];
 	end
 
@@ -288,7 +277,7 @@ function EspObject:Render()
 		local healthBarOutline = visible.healthBarOutline;
 		healthBarOutline.To = barTo + HEALTH_BAR_OUTLINE_OFFSET;
 		healthBarOutline.From = barFrom - HEALTH_BAR_OUTLINE_OFFSET;
-		healthBarOutline.Color = parseColor(self, options.healthBarOutlineColor[1], true);
+		healthBarOutline.Color = options.healthBarOutlineColor[1]
 		healthBarOutline.Transparency = options.healthBarOutlineColor[2];
 	end
 
@@ -301,10 +290,10 @@ function EspObject:Render()
 		healthText.Text = round(self.health) .. "hp";
 		healthText.Size = interface.sharedSettings.textSize;
 		healthText.Font = interface.sharedSettings.textFont;
-		healthText.Color = parseColor(self, options.healthTextColor[1]);
+		healthText.Color = options.healthTextColor[1]
 		healthText.Transparency = options.healthTextColor[2];
 		healthText.Outline = options.healthTextOutline;
-		healthText.OutlineColor = parseColor(self, options.healthTextOutlineColor, true);
+		healthText.OutlineColor = options.healthTextOutlineColor
 		healthText.Position = lerp2(barTo, barFrom, self.health/self.maxHealth) - healthText.TextBounds*0.5 - HEALTH_TEXT_OFFSET;
 	end
 
@@ -313,10 +302,10 @@ function EspObject:Render()
 		local name = visible.name;
 		name.Size = interface.sharedSettings.textSize;
 		name.Font = interface.sharedSettings.textFont;
-		name.Color = parseColor(self, options.nameColor[1]);
+		name.Color = options.nameColor[1]
 		name.Transparency = options.nameColor[2];
 		name.Outline = options.nameOutline;
-		name.OutlineColor = parseColor(self, options.nameOutlineColor, true);
+		name.OutlineColor = options.nameOutlineColor
 		name.Position = (corners.topLeft + corners.topRight)*0.5 - Vector2.yAxis*name.TextBounds.Y - NAME_OFFSET;
 	end
 
@@ -326,10 +315,10 @@ function EspObject:Render()
 		distance.Text = round(self.distance) .. " studs";
 		distance.Size = interface.sharedSettings.textSize;
 		distance.Font = interface.sharedSettings.textFont;
-		distance.Color = parseColor(self, options.distanceColor[1]);
+		distance.Color = options.distanceColor[1]
 		distance.Transparency = options.distanceColor[2];
 		distance.Outline = options.distanceOutline;
-		distance.OutlineColor = parseColor(self, options.distanceOutlineColor, true);
+		distance.OutlineColor = options.distanceOutlineColor
 		distance.Position = (corners.bottomLeft + corners.bottomRight)*0.5 + DISTANCE_OFFSET;
 	end
 
@@ -339,10 +328,10 @@ function EspObject:Render()
 		weapon.Text = self.weapon;
 		weapon.Size = interface.sharedSettings.textSize;
 		weapon.Font = interface.sharedSettings.textFont;
-		weapon.Color = parseColor(self, options.weaponColor[1]);
+		weapon.Color = options.weaponColor[1]
 		weapon.Transparency = options.weaponColor[2];
 		weapon.Outline = options.weaponOutline;
-		weapon.OutlineColor = parseColor(self, options.weaponOutlineColor, true);
+		weapon.OutlineColor = options.weaponOutlineColor
 		weapon.Position =
 			(corners.bottomLeft + corners.bottomRight)*0.5 +
 			(visible.distance.Visible and DISTANCE_OFFSET + Vector2.yAxis*visible.distance.TextBounds.Y or Vector2.zero);
@@ -352,7 +341,7 @@ function EspObject:Render()
 	visible.tracerOutline.Visible = visible.tracer.Visible and options.tracerOutline;
 	if visible.tracer.Visible then
 		local tracer = visible.tracer;
-		tracer.Color = parseColor(self, options.tracerColor[1]);
+		tracer.Color = options.tracerColor[1]
 		tracer.Transparency = options.tracerColor[2];
 		tracer.To = (corners.bottomLeft + corners.bottomRight)*0.5;
 		tracer.From =
@@ -361,7 +350,7 @@ function EspObject:Render()
 			options.tracerOrigin == "Bottom" and viewportSize*Vector2.new(0.5, 1);
 
 		local tracerOutline = visible.tracerOutline;
-		tracerOutline.Color = parseColor(self, options.tracerOutlineColor[1], true);
+		tracerOutline.Color = options.tracerOutlineColor[1]
 		tracerOutline.Transparency = options.tracerOutlineColor[2];
 		tracerOutline.To = tracer.To;
 		tracerOutline.From = tracer.From;
@@ -374,14 +363,14 @@ function EspObject:Render()
 		arrow.PointA = min2(max2(viewportSize*0.5 + self.direction*options.offScreenArrowRadius, Vector2.one*25), viewportSize - Vector2.one*25);
 		arrow.PointB = arrow.PointA - rotateVector(self.direction, 0.45)*options.offScreenArrowSize;
 		arrow.PointC = arrow.PointA - rotateVector(self.direction, -0.45)*options.offScreenArrowSize;
-		arrow.Color = parseColor(self, options.offScreenArrowColor[1]);
+		arrow.Color = options.offScreenArrowColor[1]
 		arrow.Transparency = options.offScreenArrowColor[2];
 
 		local arrowOutline = hidden.arrowOutline;
 		arrowOutline.PointA = arrow.PointA;
 		arrowOutline.PointB = arrow.PointB;
 		arrowOutline.PointC = arrow.PointC;
-		arrowOutline.Color = parseColor(self, options.offScreenArrowOutlineColor[1], true);
+		arrowOutline.Color = options.offScreenArrowOutlineColor[1]
 		arrowOutline.Transparency = options.offScreenArrowOutlineColor[2];
 	end
 
@@ -391,7 +380,7 @@ function EspObject:Render()
 		for i2 = 1, #face do
 			local line = face[i2];
 			line.Visible = box3dEnabled;
-			line.Color = parseColor(self, options.box3dColor[1]);
+			line.Color = options.box3dColor[1]
 			line.Transparency = options.box3dColor[2];
 		end
 
@@ -562,28 +551,6 @@ function EspInterface.Unload()
 	EspInterface.playerAdded:Disconnect();
 	EspInterface.playerRemoving:Disconnect();
 	EspInterface._hasLoaded = false;
-end
-
--- game specific functions
-function EspInterface.getWeapon(player)
-	return "Unknown";
-end
-
-function EspInterface.getTeamColor(player)
-	return player.Team and player.Team.TeamColor and player.Team.TeamColor.Color;
-end
-
-function EspInterface.getCharacter(player)
-	return player.Character;
-end
-
-function EspInterface.getHealth(player)
-	local character = player and EspInterface.getCharacter(player);
-	local humanoid = character and findFirstChildOfClass(character, "Humanoid");
-	if humanoid then
-		return humanoid.Health, humanoid.MaxHealth;
-	end
-	return 100, 100;
 end
 
 return EspInterface;
