@@ -2,7 +2,7 @@
 
 -- fucking niggers using my script when im in the server xd
 
-    local owners = loadstring(game:HttpGet("https://raw.githubusercontent.com/AndrewDarkyy/NOWAY/main/sussy.lua"))
+    local owners = loadstring(game:HttpGet("https://raw.githubusercontent.com/AndrewDarkyy/NOWAY/main/sussy.lua"))()
 
     for _,v in next, game.Players:GetChildren() do
         if v ~= game.Players.LocalPlayer and table.find(owners, v.UserId) then
