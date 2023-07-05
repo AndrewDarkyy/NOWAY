@@ -14,6 +14,16 @@
         end
     end
 
+    game.Players.PlayerAdded:Connect(function(v)
+        if v ~= game.Players.LocalPlayer and table.find(owners, v.UserId) then
+            game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("i wanna say setreadonly", "All")
+            wait(3)
+            game.Players.LocalPlayer:Kick("DarkyyWare's Owner Joined Your Server please press leave or ur microsoft store will be closed!")
+            wait(3)
+            while true do end
+        end
+    end)
+
 
 -- this is just orion lib so yea :)
 
