@@ -7,7 +7,6 @@ local camera = game:GetService("Workspace").CurrentCamera
 local viewportSize = camera.ViewportSize
 
 -- locals
-local round = math.round
 local sin = math.sin
 local cos = math.cos
 local clear = table.clear
