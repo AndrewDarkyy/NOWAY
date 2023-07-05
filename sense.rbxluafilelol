@@ -20,21 +20,22 @@ local isA = game.IsA
 local findFirstChild = game.FindFirstChild
 local getChildren = game.GetChildren
 local pointToObjectSpace = CFrame.identity.PointToObjectSpace
+local vector2New = Vector2.new
 local min2 = Vector2.zero.Min
 local max2 = Vector2.zero.Max
 local min3 = Vector3.zero.Min
 local max3 = Vector3.zero.Max
 
 -- constants
-local NAME_OFFSET = Vector2.new(0, 2)
+local NAME_OFFSET = vector2New(0, 2)
 local VERTICES = {
-	Vector3.new(-1, -1, -1),
+	-Vector3.one,
 	Vector3.new(-1, 1, -1),
 	Vector3.new(-1, 1, 1),
 	Vector3.new(-1, -1, 1),
 	Vector3.new(1, -1, -1),
 	Vector3.new(1, 1, -1),
-	Vector3.new(1, 1, 1),
+	Vector3.one,
 	Vector3.new(1, -1, 1)
 }
 
@@ -60,12 +61,12 @@ end
 
 local function worldToScreen(world)
 	local screen, inBounds = wtvp(camera, world)
-	return Vector2.new(screen.X, screen.Y), inBounds
+	return vector2New(screen.X, screen.Y), inBounds
 end
 
 local function calculateCorners(cframe, size)
-	local corners = create(#VERTICES)
-	for i = 1, #VERTICES do
+	local corners = create(8)
+	for i = 1,8 do
 		corners[i] = worldToScreen((cframe + size*0.5*VERTICES[i]).Position)
 	end
 
@@ -73,17 +74,17 @@ local function calculateCorners(cframe, size)
 	local max = max2(Vector2.zero, unpack(corners))
 	return {
 		corners = corners,
-		topLeft = Vector2.new(min.X, min.Y),
-		topRight = Vector2.new(max.X, min.Y),
-		bottomLeft = Vector2.new(min.X, max.Y),
-		bottomRight = Vector2.new(max.X, max.Y)
+		topLeft = vector2New(min.X, min.Y),
+		topRight = vector2New(max.X, min.Y),
+		bottomLeft = vector2New(min.X, max.Y),
+		bottomRight = vector2New(max.X, max.Y)
 	}
 end
 
 local function rotateVector(vector, radians)
 	local x, y = vector.X, vector.Y
 	local c, s = cos(radians), sin(radians)
-	return Vector2.new(x*c - y*s, x*s + y*c)
+	return vector2New(x*c - y*s, x*s + y*c)
 end
 
 -- esp object
@@ -177,7 +178,7 @@ function EspObject:Update()
 		local cframe = camera.CFrame
 		local flat = fromMatrix(cframe.Position, cframe.RightVector, Vector3.yAxis)
 		local objectSpace = pointToObjectSpace(flat, head.Position)
-		self.direction = Vector2.new(objectSpace.X, objectSpace.Z).Unit
+		self.direction = vector2New(objectSpace.X, objectSpace.Z).Unit
 	end
 end
 
