@@ -255,6 +255,8 @@ local EspInterface = {
 			offScreenArrowColor = { Color3.new(1,1,1), 1 },
 			offScreenArrowOutline = true,
 			offScreenArrowOutlineColor = { Color3.new(), 1 }
+			chamsFillColor = {},
+			chamsOutlineColor = {}
 		}
 	}
 }
